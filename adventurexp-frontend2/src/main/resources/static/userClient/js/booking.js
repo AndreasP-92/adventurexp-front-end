@@ -1,12 +1,13 @@
 const thisForm = document.getElementById('bookingForm');
 const termsOfUse = document.getElementById('termsOfUse');
 
+alert("test")
 thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     const formData = new FormData(thisForm).entries()
 
     if(!termsOfUse.checked){
-            document.getElementById('missingCheckbox').innerHTML = "Accepter Bruger betingelserne før booking";
+        document.getElementById('missingCheckbox').innerHTML = "Accepter Bruger betingelserne før booking";
     } else if(termsOfUse.checked){
         const response = await fetch('http://localhost:5002/insert/booking', {
             method: 'POST',
@@ -55,10 +56,10 @@ function fillDropDown(item, index){
 
 
 
-    // .then(response => {
-    //     console.log(response.json())
-    //     return  response.status + response.statusText;
-    //     //return response.statusText;
-    //
-    // }).catch(err => {console.log("err="+err); return "fejl";})
-    // .then(alert);
+// .then(response => {
+//     console.log(response.json())
+//     return  response.status + response.statusText;
+//     //return response.statusText;
+//
+// }).catch(err => {console.log("err="+err); return "fejl";})
+// .then(alert);

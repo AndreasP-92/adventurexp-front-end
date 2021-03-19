@@ -6,7 +6,7 @@ const activity_avail_end = document.getElementById('activity_avail_end');
 const activity_min_age = document.getElementById('activity_min_age');
 const activity_group_size = document.getElementById('activity_group_size');
 const activity_desc = document.getElementById('activity_desc');
-
+alert("test")
 
 
 thisForm.addEventListener('submit', async function (e) {
@@ -17,13 +17,13 @@ thisForm.addEventListener('submit', async function (e) {
     fetch('http://localhost:5002/insert/activity', {
         method: 'POST',
         body: JSON.stringify({
-            'name'  : activity_name.value,
-            'start' : activity_avail_start.value,
-            'end'   : activity_avail_end.value,
-            'age'   : activity_min_age.value,
-            'size'  : activity_group_size.value,
-            'desc'  : activity_desc.value,
-            'pic'   : filename
+            'name'          : activity_name.value,
+            'starts'        : activity_avail_start.value,
+            'ends'          : activity_avail_end.value,
+            'age'           : activity_min_age.value,
+            'size'          : activity_group_size.value,
+            'description'   : activity_desc.value,
+            'pic'           : filename
         }),
         headers: {
             'Content-type': 'application/json; charset=UTF-8'
@@ -35,6 +35,7 @@ thisForm.addEventListener('submit', async function (e) {
         return Promise.reject(response);
     }).then(function (data) {
         thisForm.submit();
+        console.log(data)
     }).catch(function (error) {
         console.warn('Something went wrong.', error);
 
