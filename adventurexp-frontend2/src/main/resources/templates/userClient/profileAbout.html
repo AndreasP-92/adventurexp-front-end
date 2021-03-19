@@ -29,7 +29,7 @@
                 <a href="/profile/history" class="ml-2 text-white">Historik</a>
             </div>
         </div>
-        <form class="contact w-75"style="margin-top: 10%;" action="/insert/project" method="post">
+        <form id="profileAboutForm" class="contact w-75"style="margin-top: 10%;" action="/insert/project" method="post">
             <div class="valid" id="notFilled"></div>
 
             <h3 class="text-center">Rediger login info</h3>
@@ -37,7 +37,7 @@
             <!-- NEW EMAIL -->
             <div class="form-group ml-5 mr-5">
                 <label for="newEmail">Indtast ny E-mail</label>
-                <input class="form-control" type="email" id="newEmail" name="new_email" required placeholder="Ny E-Mail adresse">
+                <input class="form-control mail"  type="email" id="newEmail" name="new_email" required placeholder="Ny E-Mail adresse">
             </div>
 
             <!-- NEW PASSWORD -->
@@ -61,4 +61,5 @@
     <!--=================== Footer ============================ -->
 </footer>
 </body>
+<script src="/userClient/js/profileabout.js"></script>
 </html>
