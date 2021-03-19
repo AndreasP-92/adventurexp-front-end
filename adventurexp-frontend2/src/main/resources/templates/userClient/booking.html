@@ -16,23 +16,23 @@
 </header>
 <main class="container" align="">
 
-<!-- === CREATE BOOKING FORM === -->
+    <!-- === CREATE BOOKING FORM === -->
     <form class="contact w-50" id="bookingForm" method="post">
         <div class="valid" id="notFilled"></div>
 
         <h3 class="text-center">Lav en Booking</h3>
 
-<!-- === ACTIVITY + GUESTS === -->
+        <!-- === ACTIVITY + GUESTS === -->
         <div class="row mt-5">
-            <div class="col-sm-6"><select name="booking_activity" class="activiySelector form-control"><option>Vælg en aktivitet</option></select></div>
+            <div class="col-sm-6"><select name="activity" class="activiySelector form-control"><option>Vælg en aktivitet</option></select></div>
             <div class="col-sm-6" align="center"><input class="form-control" id="GuestNumber" type="number" name="guests" required  placeholder="Antal Gæster"> </div>
         </div>
 
-<!-- ==== DURATION + DATE ====-->
+        <!-- ==== DURATION + DATE ====-->
         <div class="row mt-5">
             <div class="col-sm-6" align="center"><input class="form-control" type="date" min="2021-03-01" max="2021-03-20" name="datetime" required placeholder="Dato"> </div>
             <div class="col-sm-6" align="center">
-                <select class="form-control" name="booking_duration">
+                <select class="form-control" name="duration">
                     <option value="12:00">Vælg Varigheden</option>
                     <option value="12:00">12 Timer</option>
                     <option value="24:00">24 Timer</option>
@@ -41,32 +41,32 @@
             </div>
         </div>
 
-<!-- === FIRSTNAME + LASTNAME === -->
+        <!-- === FIRSTNAME + LASTNAME === -->
         <div class="row mt-5">
             <div class="col-sm-6" align="center"><input class="form-control" type="text" name="firstname" required placeholder="Fornavn"> </div>
             <div class="col-sm-6" align="center"><input class="form-control" type="text" name="lastname" required placeholder="Efternavn"> </div>
         </div>
 
-<!-- === PHONE + MAIL === -->
+        <!-- === PHONE + MAIL === -->
         <div class="row mt-5">
             <div class="col-sm-6" align="center"><input class="form-control" type="number" name="phone" required placeholder="Telefonnummer"> </div>
             <div class="col-sm-6" align="center"><input class="form-control" type="email" name="mail" required placeholder="Email"> </div>
         </div>
 
-<!-- === COMMENTS === -->
+        <!-- === COMMENTS === -->
         <div class="form-group mt-5">
             <label for="comments">Yderligere kommentar og ønsker</label>
             <textarea name="context" class="form-control" id="comments" rows="3"></textarea>
         </div>
 
-<!-- === CHECK BOX === -->
+        <!-- === CHECK BOX === -->
         <div class="form-check" align="center">
             <div id="missingCheckbox"></div>
             <input class="form-check-input" type="checkbox" id="termsOfUse">
             <label class="form-check-label" for="termsOfUse">Jeg acceptere</label> <a href="">Bruger Betingelser</a>
         </div>
 
-<!-- === SUBMIT === -->
+        <!-- === SUBMIT === -->
         <div class="form-group ml-5 mr-5">
             <button type="submit" class="w-75 btn form-button ml-5 mr-5">Book Nu</button>
         </div>
