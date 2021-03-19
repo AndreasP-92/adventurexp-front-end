@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lav et Event</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="/userClient/css/formStyle.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <!--=================== NAVIGATION ============================ -->
+    <div th:replace="fragments/navbar :: navigation">
+
+    </div>
+</header>
+<main class="container" align="">
+    <!-- === CREATE EVENT === -->
+    <form class="contact w-50" action="/upload" method="post" id="activityForm" enctype="multipart/form-data">
+        <div class="valid" id="notFilled"></div>
+
+        <h3 class="text-center">Lav et nyt Event</h3>
+        <!-- ACTIVITY NAME -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_name">Aktivitet navn</label>
+            <input class="form-control" type="text" id="activity_name" name="name"  placeholder="Aktivitetes Navn" required>
+        </div>
+
+        <!-- ACTIVITY PERIOD START -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_avail_start">Aktivitetes Periode Start</label>
+            <input rows="3" class="form-control" type="date" id="activity_avail_start"  name="starts" placeholder="Aktivitets Periode Start" required>
+        </div>
+
+        <!-- Activity Period End -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_avail_end">Aktivitetes Periode Slut</label>
+            <input id="activity_avail_end" class="form-control" type="date" name="ends" required>
+        </div>
+
+        <!-- Minimum Age -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_min_age">Minimum Deltager Alder</label>
+            <input class="form-control" type="number" id="activity_min_age" name="age" required>
+        </div>
+
+        <!-- Activity Size -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_group_size">Aktivitets Antal Deltagere</label>
+            <input class="form-control" id="activity_group_size" type="number" name="size"required>
+        </div>
+
+        <!-- Activity Description -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_desc">Aktivitetes Beskrivelse</label>
+            <textarea required class="form-control" id="activity_desc" name="description" rows="3"></textarea>
+        </div>
+
+        <!-- Activity Picture -->
+        <div class="form-group ml-5 mr-5">
+<!--            <p th:text="${message}" th:if="${message == null}" class="alert alert-primary">Indsæt venligst et gyldigt Billede</p>-->
+            <label for="activity_pic">Indsæt billede</label>
+
+            <!-- UPLOAD IMAGE -->
+            <input class="form-control-file" id="activity_pic" name="file" type="file" required>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Cancel Creation -->
+
+                <a href="/" class="w-50 btn form-button ml-5 mr-5" >Anuller</a>
+            </div>
+            <div class="col-md-6 pl-5">
+                <!-- SUBMIT -->
+                <button type="submit" class="w-50 btn form-button ml-5 mr-5">Gem</button>
+            </div>
+
+        </div>
+
+    </form>
+</main>
+<footer>
+    <!--=================== Footer ============================ -->
+</footer>
+</body>
+<script src="/userClient/js/activity.js"></script>
+</html>

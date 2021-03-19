@@ -1,0 +1,26 @@
+.activities{
+    background-color:#4f3737;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    color:white;
+}
+
+.activities img{
+    width:55%;
+}
+
+.activities img:hover{
+    transform: scale(1.3);
+    border: 2px solid black;
+}
+
+.principles{
+    background-color:#099669;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    color:white;
+}
+
+.principles img{
+    width:30%;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lav en Ticket</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="/userClient/contact.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <!--=================== NAVIGATION ============================ -->
+    <div th:replace="fragments/navbar :: navigation">
+
+    </div>
+
+</header>
+<main class="container" align="">
+    <!--    </img src="/images/adventure.jpg">-->
+    <!-- === CREATE TICKET === -->
+    <form class="contact w-50" action="/insert/project" method="post">
+        <div class="valid" id="notFilled"></div>
+
+        <div class="d-flex justify-content-center">
+            <div class="brand_logo_container">
+                <img src="/images/logo04.PNG" class ="brand_logo" alt="logo">
+            </div>
+        </div>
+
+        <!-- FIRSTNAME -->
+        <div class="form-group ml-5 mr-5 m-1">
+            <label for="Fornavn"></label>
+            <input class="form-control" type="text" id="Fornavn" name="Fornavn" required placeholder="Fornavn">
+        </div>
+
+        <!-- LASTNAME -->
+        <div class="form-group ml-5 mr-5 m-1">
+            <label for="Efternavn"></label>
+            <input class="form-control" type="text" id="Efternavn" name="Efternavn" required placeholder="Efternavn">
+        </div>
+
+        <!-- E-mail -->
+        <div class="form-group ml-5 mr-5 m-1">
+            <label for="E-mail"></label>
+            <input class="form-control" type="email" id="E-mail" name="E-mail" required placeholder="E-mail">
+        </div>
+
+
+        <!-- CONTENT -->
+        <div class="form-group ml-5 mr-5 m-1">
+            <label for="Beskrivelse"></label>
+            <textarea class="form-control" id="Beskrivelse" rows="3" placeholder="Beskrivelse"></textarea>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <div class="ml-5 mr-5 m-3">
+            <input type="submit" value="Submit" class="btn submit_btn"/>
+        </div>
+
+
+    </form>
+</main>
+<footer>
+    <!--=================== Footer ============================ -->
+</footer>
+</body>
+</html>

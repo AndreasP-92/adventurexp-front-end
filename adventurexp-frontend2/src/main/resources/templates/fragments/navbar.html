@@ -1,0 +1,29 @@
+<html xmlns:th = "http://www.thymeleaf.org">
+
+<nav th:fragment="navigation" class="navbar navbar-transparent navbar-expand-md fixed-top sticky">
+    <div class="d-flex w-50 order-0">
+        <a class="navbar-brand mr-1" href="/"><img src="/images/miniLogo02.PNG" style="width:14%;"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse justify-content-center order-2 w-50" id="collapsingNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item ml-5 mr-5">
+                <a class="nav-link text-truncate text-white" href="/">Forside</a>
+            </li>
+            <li class="nav-item ml-4 ml-5 mr-5">
+                <a class="nav-link text-truncate text-white" href="/#udregnMain">Events</a>
+            </li>
+            <li class="nav-item ml-4 ml-5 mr-5">
+                <a class="nav-link text-truncate text-white" href="/booking">Booking</a>
+            </li>
+            <li class="nav-item ml-4 ml-5 mr-5">
+                <a class="nav-link text-truncate text-white" href="/omos">Shop</a>
+            </li>
+        </ul>
+    </div>
+    <div class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">
+        <a href="/login" class="text-truncate text-white">login</a>
+    </div>
+</nav>

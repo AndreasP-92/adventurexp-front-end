@@ -1,0 +1,44 @@
+body{
+    background-image: url("/images/adventure.jpg");
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-color: #099669;
+}
+
+.contact {
+    background: #707070d9;
+    padding:25px;
+    display: block;
+    margin:20% auto 0 auto;
+}
+
+.contact h3 {
+    color: #ffffff;
+    display: block;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.contact h4 {
+    margin:5px 0 15px;
+    display:block;
+    font-size:13px;
+}
+.contact label{
+    color: white;
+}
+.form-button{
+    background-color: #1ca14b!important;
+    margin-top: 15px;
+}
+.mb-5, .my-5 {
+    margin-bottom: 0rem !important;
+}
+#notFilled{
+    background-color: #ff5050;
+    border-radius: 25px;
+}
+#missingCheckbox{
+    background-color: #ff5050;
+    border-radius: 25px;
+}

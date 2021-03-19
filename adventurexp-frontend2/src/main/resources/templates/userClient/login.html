@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="/userClient/login.css" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+<header>
+    <!--=================== NAVIGATION ============================ -->
+    <div th:replace="fragments/navbar :: navigation">
+
+    </div>
+
+</header>
+<main class="container" align="">
+    <!--    </img src="/images/adventure.jpg">-->
+    <!-- === CREATE EVENT === -->
+    <form class="contact w-50" action="/insert/project" method="post">
+        <div class="valid" id="notFilled"></div>
+
+        <div class="d-flex justify-content-center h-100">
+            <div class="user_card">
+                <div class="d-flex justify-content-center">
+                    <div class="brand_logo_container">
+                        <img src="/images/logo04.PNG" class ="brand_logo" alt="logo">
+                    </div>
+                </div>
+
+        <!-- E-mail -->
+        <div class="form-group mb-1 my-3">
+            <label for="E-mail"></label>
+            <input class="form-control" type="email" id="E-mail" name="E-mail" required placeholder="E-mail">
+        </div>
+
+        <!-- Password -->
+        <div class="form-group mb-1 my-1">
+            <label for="Kodeord"></label>
+            <input class="form-control" type="password" id="Kodeord" name="Kodeord" required placeholder="Kodeord">
+        </div>
+
+
+        <div class=" d-flex justify-content-center mt-3 p-4 w-100 login_container">
+            <input type="submit" value="Login" class="btn login_btn"/>
+        </div>
+
+        <div class="form-group ">
+            <input type="checkbox" value="lsRememberMe" id="rememberMe">
+            <label for="rememberMe">Remember me</label>
+        </div>
+
+<!--        DONT HAVE A PROFILE        -->
+        <div class="mt-4">
+            <div class="d-flex justify-content-center links">
+                Har du ikke en bruger? <a href="/register" class="ml-2 text-white">Opret Bruger</a>
+            </div>
+
+<!--            FOTGOT PASSWORD-->
+            <div class="d-flex justify-content-center links">
+                <a href="/contact/" class="text-white">Glemt Kodeord?</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    </form>
+</main>
+<footer>
+    <!--=================== Footer ============================ -->
+</footer>
+</body>
+</html>

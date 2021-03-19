@@ -1,0 +1,76 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Opret Profil</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="/userClient/register.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <!--=================== NAVIGATION ============================ -->
+    <div th:replace="fragments/navbar :: navigation">
+
+    </div>
+
+</header>
+<main class="container" align="">
+    <!-- === CREATE PROFILE === -->
+    <form class="contact w-50" id="registerForm" action="" method="post">
+        <div class="valid" id="notFilled"></div>
+
+        <h3 class="text-center">Opret Profil</h3>
+
+        <!-- USER EMAIL -->
+        <div class="form-group ml-5 mr-5">
+            <label for="email">E-mail</label>
+            <input class="form-control" type="email" id="email" required name="mail" placeholder="Email">
+        </div>
+
+        <!-- USER PASSWORD -->
+        <div class="form-group ml-5 mr-5">
+            <label for="password">Password</label>
+            <input class="form-control" type="password" id="password" required name="password" placeholder="Password">
+            <div id="passwordValid" class="valid"></div>
+        </div>
+
+        <!-- CONFIRM PASSWORD -->
+        <div class="form-group ml-5 mr-5">
+            <label for="confirm_password">Bekræft Password</label>
+            <input class="form-control" type="password" id="confirm_password" required placeholder="Bekræft Password">
+        </div>
+
+        <!-- USER FIRST NAME-->
+        <div class="form-group ml-5 mr-5">
+            <label for="firstname">Fornavn</label>
+            <input class="form-control" type="text" id="firstname" required name="firstname" placeholder="Fornavn">
+        </div>
+
+        <!-- USER LAST NAME -->
+        <div class="form-group ml-5 mr-5">
+            <label for="lastname">Efternavn</label>
+            <input class="form-control" type="text" id="lastname" required name="lastname" placeholder="Efternavn">
+        </div>
+
+        <!-- USER PHONE -->
+        <div class="form-group ml-5 mr-5">
+            <label for="telefon">Telefon</label>
+            <input class="form-control" type="text" id="telefon" required name="phone" placeholder="Telefon">
+        </div>
+
+        <!-- SUBMIT -->
+        <div class="form-group ml-5 mr-5">
+            <button type="submit" class="w-75 btn form-button ml-5 mr-5">Gem</button>
+        </div>
+
+        </div>
+
+    </form>
+</main>
+<footer>
+    <!--=================== Footer ============================ -->
+    <div th:replace="userClient/partials/footer :: footerFragment"></div>
+</footer>
+</body>
+<script src="/userClient/js/register.js"></script>
+</html>

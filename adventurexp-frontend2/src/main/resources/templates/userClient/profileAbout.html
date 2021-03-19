@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ProfileAbout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="/userClient/profile.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <!--=================== NAVIGATION ============================ -->
+    <div th:replace="fragments/navbar :: navigation">
+
+    </div>
+
+</header>
+<main class="container" align="">
+    <!--    </img src="/images/adventure.jpg">-->
+    <!-- === CREATE EVENT === -->
+    <div class="w-75" style="background-color: #3f474ee0; padding-bottom: 10%; margin:20% auto 0 auto;">
+        <div style="margin: 0px;" class="row">
+            <div class="col-sm-2 btn mr-2 border-dark" style="background-color:#524ea1">
+                <a href="/profile/about" class="ml-2 text-white">
+                    Rediger login
+                </a>
+            </div>
+            <div class="col-sm-2 btn border-dark" style="background-color: #524ea1">
+                <a href="/profile/history" class="ml-2 text-white">Historik</a>
+            </div>
+        </div>
+        <form class="contact w-75"style="margin-top: 10%;" action="/insert/project" method="post">
+            <div class="valid" id="notFilled"></div>
+
+            <h3 class="text-center">Rediger login info</h3>
+
+            <!-- NEW EMAIL -->
+            <div class="form-group ml-5 mr-5">
+                <label for="newEmail">Indtast ny E-mail</label>
+                <input class="form-control" type="email" id="newEmail" name="new_email" required placeholder="Ny E-Mail adresse">
+            </div>
+
+            <!-- NEW PASSWORD -->
+            <div class="form-group ml-5 mr-5">
+                <label for="newPass">Indtast nyt kodeord</label>
+                <input class="form-control" type="password" id="newPass" name="newPassword" required placeholder="Nyt kodeord">
+            </div>
+
+            <!-- REPEAT NEW PASSWORD -->
+            <div class="form-group ml-5 mr-5">
+                <label for="repeatPass">Gentag kodeord</label>
+                <input class="form-control" type="password" id="repeatPass" name="repeatNewPassword" required placeholder="Gentag kodeord">
+            </div>
+
+                    <!-- SUBMIT -->
+                    <button type="submit"  class="btn btn-success ml-5 mr-5 text-dark">Gem ændringer</button>
+        </form>
+    </div>
+</main>
+<footer>
+    <!--=================== Footer ============================ -->
+</footer>
+</body>
+</html>

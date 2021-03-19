@@ -1,0 +1,60 @@
+body{
+    background-image: url("/images/adventure.jpg");
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-color: #099669;
+}
+
+.contact {
+    background: #707070d9;
+    padding:25px;
+    display: block;
+    margin:20% auto 0 auto;
+    /*height: 400px;*/
+    width: 350px;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.contact h3 {
+    color: #ffffff;
+    display: block;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.brand_logo_container {
+    position: absolute;
+    height: 170px;
+    width: 175px;
+    top: -120px;
+    border-radius: 50%;
+    padding: 10px;
+    text-align: center;
+}
+.brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 25%;
+    border: 2px solid white;
+}
+.form_container {
+    margin-top: 100px;
+}
+.submit_btn {
+    width: 100%;
+    background: #1ca14b !important;
+    color: black !important;
+    padding: 8px !important;
+}
+.login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+
+
+
+
