@@ -11,30 +11,19 @@ import java.util.stream.Collectors;
 
 
 public class MyUserDetails implements UserDetails {
-
     private String userName;
-    private String firstname;
-    private String lastname;
-    private int phone;
-    private String mail;
     private String password;
-    private String role;
+    private boolean active;
     private List<GrantedAuthority> authorities;
 
     public MyUserDetails(User user) {
         this.userName = user.getUserName();
-        this.firstname = user.getFirstname();
-        this.lastname = user.getLastname();
-        this.phone = user.getPhone();
-        this.mail = user.getMail();
         this.password = user.getPassword();
-        this.role = role;
-        this.authorities = Arrays.stream(user.getRole().split(","))
+        this.active = user.isActive();
+        this.authorities = Arrays.stream(user.getRoles().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
     }
-
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -68,6 +57,6 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return active;
     }
 }

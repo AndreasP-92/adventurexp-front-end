@@ -16,10 +16,10 @@ import java.nio.file.StandardCopyOption;
 
 @Controller
 public class MainController {
-//    @GetMapping("/")
-//    public String index(){
-//        return "/userClient/index";
-//    }
+    @GetMapping("/")
+    public String index(){
+        return "/userClient/index";
+    }
 //
 
     @GetMapping("/createevent")

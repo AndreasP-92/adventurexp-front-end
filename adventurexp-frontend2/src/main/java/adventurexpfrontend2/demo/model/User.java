@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name ="User")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String userName;
     private String firstname;
@@ -14,7 +14,22 @@ public class User {
     private int phone;
     private String mail;
     private String password;
-    private String role;
+    private String roles;
+    private boolean active;
+
+    public  User() {
+    }
+
+    public User(String userName, String firstname, String lastname, int phone, String mail, String password, String roles, boolean active) {
+        this.userName = userName;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phone = phone;
+        this.mail = mail;
+        this.password = password;
+        this.roles = roles;
+        this.active = active;
+    }
 
     public int getId() {
         return id;
@@ -72,11 +87,68 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
+    public String getRoles() {
+        return roles;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRoles(String roles) {
+        this.roles = roles;
     }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    //    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private int id;
+//    private String userName;
+//    private String password;
+//    private boolean active;
+//    private String roles;
+//
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
+//
+//    public String getUserName() {
+//        System.out.println(userName);
+//        return userName;
+//    }
+//
+//    public void setUserName(String userName) {
+//        this.userName = userName;
+//    }
+//
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+//
+//    public boolean isActive() {
+//        return active;
+//    }
+//
+//    public void setActive(boolean active) {
+//        this.active = active;
+//    }
+//
+//    public String getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(String roles) {
+//        this.roles = roles;
+//    }
 }
