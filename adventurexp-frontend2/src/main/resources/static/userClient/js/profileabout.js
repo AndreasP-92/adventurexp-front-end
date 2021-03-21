@@ -1,5 +1,4 @@
 const thisForm = document.getElementById('profileAboutForm');
-
 thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     const formData = new FormData(thisForm).entries()
@@ -28,21 +27,12 @@ fetch(myUrl, requestOptions)
     .then(response => response.json())
     .then(data => {
         gotOneMailData(data)
-        console.log("==========",data[0].mail)
+        console.log(data)
     })
 
 function gotOneMailData(data){
-    document.querySelector(".mail").value = data[0].mail
+    document.querySelector('.mail').value = data[0].mail;
 }
 
-function fillDropDown(item, index){
-    const user_mailSelector = document.querySelector('.user_mailSelector')
-
-    // let el = document.createElement("option");
-    // el.textContent = item;
-    // console.log("ITEM=====",item)
-    // el.value = item;
-    // user_mailSelector.appendChild(el);
-}
 
 
