@@ -59,6 +59,11 @@ public class MainController {
         return "/staff/bookingListIndex";
     }
 
+    @GetMapping("/activity/info")
+    public String activityInfo(){
+        return "/userClient/activityInfo";
+    }
+
     @GetMapping("/staff/booking/list/Closed")
     public String bookingClosed(){
         return "/staff/bookingListClosed";

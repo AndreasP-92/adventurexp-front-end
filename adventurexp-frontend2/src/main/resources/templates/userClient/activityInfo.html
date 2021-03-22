@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>activityInfo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="/userClient/css/activityInfo.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <!--=================== NAVIGATION ============================ -->
+    <div th:replace="fragments/navbar :: navigation">
+
+    </div>
+
+</header>
+<main class="container" align="">
+
+
+    <div class="activity">
+        <!-- ACTIVITY TITLE AND SUB-TITLE -->
+        <div class="col-sm-12 title">
+            <div class="col-sm-12">
+                <h3 class="activityTitle">
+                    BLACK DEATH
+                </h3>
+                <h4 style="padding-bottom: 5%">
+                    Overlev imod rasende zombier
+                </h4>
+            </div>
+        </div>
+
+        <!-- === ACTIVITY INFO === -->
+
+        <div class="col-sm-12 activityInfo row">
+
+            <!-- ACTIVITY BREADTEXT -->
+            <div class="col-sm-8">
+                <p class="ml-2 text-white">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                </p>
+            </div>
+            <div class="ExtraInfo text-white col-sm-4">
+                <h4 class="duration1">
+                    Varighed
+                </h4>
+                <p class="Duration2">12 Timer</p>
+                <p class="duration3">24 Timer</p>
+                <p class="Duration4">48 Timer</p>
+                <h4>Pris</h4>
+                <p>- 1500kr</p>
+                <p>- 2500kr</p>
+                <p>- 3000kr</p>
+                <h4>- Praktisk info</h4>
+                <p>Medbring dine egne ting</p>
+
+
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <!--=================== Footer ============================ -->
+    <div th:replace="fragments/footer :: footerFragment"></div>
+</footer>
+</body>
+<script src="/userClient/js/activityInfo.js"></script>
+</html>
