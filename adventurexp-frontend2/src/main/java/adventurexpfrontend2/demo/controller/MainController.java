@@ -87,4 +87,12 @@ public class MainController {
         return "redirect:/";
     }
 
+
+    //----------------------------ADMIN-------------------------
+    @GetMapping("/admin/register")
+    public String adminRegister(){return "/adminClient/adminRegister"; }
+
+    @GetMapping("/admin/profilelist")
+    public String adminProfilelist(){return "/adminClient/adminProfilelist";}
+
 }
