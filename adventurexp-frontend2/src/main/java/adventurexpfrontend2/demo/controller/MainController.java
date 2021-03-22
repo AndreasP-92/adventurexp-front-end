@@ -24,7 +24,7 @@ public class MainController {
 
     @GetMapping("/createevent")
     public String createEvent(){
-        return "/userClient/createEvent";
+        return "/staff/createEvent";
     }
 
     @GetMapping("/register")
