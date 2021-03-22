@@ -59,6 +59,11 @@ public class MainController {
         return "/staff/bookingListIndex";
     }
 
+    @GetMapping("/staff/booking/list/Closed")
+    public String bookingClosed(){
+        return "/staff/bookingListClosed";
+    }
+
     private final String UPLOAD_DIR = "./src/main/resources/static/images/";
 
     @PostMapping("/upload")
