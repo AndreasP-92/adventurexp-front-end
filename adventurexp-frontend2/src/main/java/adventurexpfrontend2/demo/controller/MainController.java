@@ -54,6 +54,11 @@ public class MainController {
         return "/userClient/contact";
     }
 
+    @GetMapping("/staff/booking/list")
+    public String bookingList(){
+        return "/staff/bookingListIndex";
+    }
+
     private final String UPLOAD_DIR = "./src/main/resources/static/images/";
 
     @PostMapping("/upload")
