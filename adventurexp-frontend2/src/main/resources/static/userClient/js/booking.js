@@ -53,13 +53,3 @@ function fillDropDown(item, index){
     el.value = item;
     activitySelector.appendChild(el);
 }
-
-
-
-// .then(response => {
-//     console.log(response.json())
-//     return  response.status + response.statusText;
-//     //return response.statusText;
-//
-// }).catch(err => {console.log("err="+err); return "fejl";})
-// .then(alert);

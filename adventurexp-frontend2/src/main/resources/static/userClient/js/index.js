@@ -1,6 +1,4 @@
 
-
-
 //======== GET ALL ACTIVITIES ========
 
 const mail = "javascript version af at hente en parameter"
@@ -20,13 +18,6 @@ fetch(myUrl, requestOptions)
         data.forEach(fillActivities)
         console.log(data)
     })
-
-function gotActivityData(data) {
-    console.log('activities====', data)
-    const activitiesMap = data.map(dd => dd);
-    console.log('activitiesMap====', activitiesMap)
-    // activitiesMap.forEach(fillDropDown)
-}
 
 function fillActivities(item, index){
     const activitySelector = document.querySelector('.activityList')

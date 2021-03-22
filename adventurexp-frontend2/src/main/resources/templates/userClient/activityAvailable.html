@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Activity Availability</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="/userClient/css/activityAvailable.css" type="text/css" rel="stylesheet">
+    <link href="/userClient/css/activityEvents.css" type="text/css" rel="stylesheet">
+
+
+    <!------ Include the above in your HEAD tag ---------->
+
+<!--    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+<!--    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
+<!--    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
+<!--    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">-->
+</head>
+<body>
+<header>
+    <!--=================== NAVIGATION ============================ -->
+    <div th:replace="fragments/navbar :: navigation">
+
+    </div>
+
+</header>
+<div id='wrap'>
+
+    <div id='calendar'></div>
+
+    <div style='clear:both'></div>
+</div>
+</body>
+<script src="/userClient/js/activityEvents.js"></script>
+<script src="/userClient/js/activityAvailable.js"></script>
+
+</html>

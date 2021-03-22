@@ -64,6 +64,12 @@ public class MainController {
         return "/staff/bookingListClosed";
     }
 
+    @GetMapping("/activity/calender")
+    public String activityAvailable(){
+        return "/userClient/activityAvailable";
+    }
+
+
     private final String UPLOAD_DIR = "./src/main/resources/static/images/";
 
     @PostMapping("/upload")
