@@ -55,17 +55,17 @@ function fillTbody(item, index){
     th3.textContent = item.paid;
     tr.appendChild(th3);
 
-// === CREATE TH ===
-    let td = document.createElement('td');
-    tr.appendChild(td)
-
-
-// === CREATE ATAG ===
-    let a = document.createElement('a');
-    a.className = "mt-3 w-75 btn btn-info"
-    a.textContent = "Rediger"
-    a.href = "/booking/history/"+item.id;
-    td.appendChild(a);
+// // === CREATE TH ===
+//     let td = document.createElement('td');
+//     tr.appendChild(td)
+//
+//
+// // === CREATE ATAG ===
+//     let a = document.createElement('a');
+//     a.className = "mt-3 w-75 btn btn-info"
+//     a.textContent = "Rediger"
+//     a.href = "/booking/history/"+item.id;
+//     td.appendChild(a);
 
 // === CREATE TH ===
 

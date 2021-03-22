@@ -49,7 +49,7 @@ public class MainController {
         return "/userClient/login";
     }
 
-    @GetMapping("/contact/")
+    @GetMapping("/contact")
     public String contact(){
         return "/userClient/contact";
     }
