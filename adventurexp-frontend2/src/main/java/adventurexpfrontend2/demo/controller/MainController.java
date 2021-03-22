@@ -59,6 +59,11 @@ public class MainController {
         return "/staff/bookingListIndex";
     }
 
+    @GetMapping("/activity/info")
+    public String activityInfo(){
+        return "/userClient/activityInfo";
+    }
+
     private final String UPLOAD_DIR = "./src/main/resources/static/images/";
 
     @PostMapping("/upload")
