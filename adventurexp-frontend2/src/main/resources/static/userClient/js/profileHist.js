@@ -7,6 +7,7 @@
 thePath = window.location.pathname;
 const email = thePath.substring(thePath.lastIndexOf('/')+1)
 
+
 const myUrl = `http://localhost:5002/select/booking/${email}`;
 
 const requestOptions = {

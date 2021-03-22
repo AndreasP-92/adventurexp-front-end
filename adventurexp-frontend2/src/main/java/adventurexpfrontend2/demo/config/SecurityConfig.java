@@ -30,33 +30,33 @@ import java.util.Map;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    UserDetailsService userDetailsService;
-
-
 //    @Autowired
-//    DataSource dataSource;
+//    UserDetailsService userDetailsService;
 
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication()
-//                .dataSource(dataSource)
-////                .passwordEncoder(new BCryptPasswordEncoder())
-//                .usersByUsernameQuery("SELECT mail, password, enabled "
-//                        + "FROM users "
-//                        + "WHERE mail = ?")
-//                .authoritiesByUsernameQuery("SELECT mail, role "
-//                        + "FROM auth "
-//                        + "WHERE mail = ?");
-//    }
-
+    @Autowired
+    DataSource dataSource;
 
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-        auth.userDetailsService(userDetailsService);
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication()
+                .dataSource(dataSource)
+//                .passwordEncoder(new BCryptPasswordEncoder())
+                .usersByUsernameQuery("SELECT mail, password, enabled "
+                        + "FROM users "
+                        + "WHERE mail = ?")
+                .authoritiesByUsernameQuery("SELECT mail, role "
+                        + "FROM auth "
+                        + "WHERE mail = ?");
     }
+
+
+
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+//        auth.userDetailsService(userDetailsService);
+//    }
 
 
     @Override
@@ -65,9 +65,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/user").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/").permitAll()
-                .and().formLogin();
+                .and().formLogin()
+                .defaultSuccessUrl("/",true)
+                .loginPage("/login")
+                .usernameParameter("mail")
+                .passwordParameter("password")
+                .loginProcessingUrl("/doLogin")
+                .failureHandler(new AuthenticationFailureHandler() {
+                    @Override
+                    public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
+                        System.out.println("Login Failure!!!....");
+                        System.out.println(e);
+
+                        httpServletResponse.sendRedirect("/login");
+                    }
 
 
+                })
+                .and()
+                .logout()
+                .logoutUrl("/logout");
     }
 
 //    @Override

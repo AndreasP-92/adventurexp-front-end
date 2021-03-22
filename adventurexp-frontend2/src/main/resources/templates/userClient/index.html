@@ -11,47 +11,52 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 <body>
-<header>
+    <header>
     <!--=================== NAVIGATION ============================ -->
     <div th:replace="fragments/navbar :: navigation">
 
     </div>
-    <div class="slider">
-        <div>
-<!--=================== SLIDER ============================ -->
+    </header>
+    <main>
 
-            <div th:class="Modern-Slider">
-                <!-- Item -->
-                <div class="item">
-                    <div class="img-fill">
-                        <img src="/images/slidingImages/adventure-2528477_1920.jpg"/>
-                        <div class="info">
-                        </div>
+
+    <!--=================== SLIDER ============================ -->
+    <div class="slider">
+
+    <div>
+
+
+        <div th:class="Modern-Slider">
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="/images/slidingImages/adventure-2528477_1920.jpg"/>
+                    <div class="info">
                     </div>
                 </div>
-                <!-- // Item -->
-                <!-- Item -->
-                <div class="item">
-                    <div class="img-fill">
-                        <img src="/images/slidingImages/bowling-1180288-1600x1200.jpg"/>
-                        <div class="info">
-                        </div>
+            </div>
+            <!-- // Item -->
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="/images/slidingImages/bowling-1180288-1600x1200.jpg"/>
+                    <div class="info">
                     </div>
                 </div>
-                <!-- // Item -->
-                <!-- Item -->
-                <div class="item">
-                    <div class="img-fill">
-                        <img src="/images/slidingImages/pexels-cottonbro-5435454.jpg/" alt="">
-                        <div class="info">
-                        </div>
+            </div>
+            <!-- // Item -->
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="/images/slidingImages/pexels-cottonbro-5435454.jpg/" alt="">
+                    <div class="info">
                     </div>
                 </div>
             </div>
         </div>
+        </div>
     </div>
-    <main>
-<!--=================== ACTIVITY LIST ============================ -->
+    <!--=================== ACTIVITY LIST ============================ -->
 
         <div class="activities" align="center" style="">
             <h1 style="margin-bottom: 5%">Vores Aktiviteter</h1>
@@ -60,7 +65,7 @@
 
             </div>
         </div>
-<!--=================== PRINCIPLE LIST ============================ -->
+    <!--=================== PRINCIPLE LIST ============================ -->
 
         <div class="principles" align="center">
             <div class="row w-75">
@@ -82,11 +87,8 @@
             </div>
         </div>
     </main>
-    <footer>
         <!--=================== Footer ============================ -->
     <div th:replace="fragments/footer :: footerFragment"></div>
-    </footer>
-</header>
 </body>
 <script src="/userClient/js/index.js"></script>
 <script src="/userClient/js/slider.js"></script>

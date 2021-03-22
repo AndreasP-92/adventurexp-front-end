@@ -1,7 +1,6 @@
 const thisForm = document.getElementById('bookingForm');
 const termsOfUse = document.getElementById('termsOfUse');
 
-alert("test")
 thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     const formData = new FormData(thisForm).entries()
@@ -14,9 +13,10 @@ thisForm.addEventListener('submit', async function (e) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(Object.fromEntries(formData)),
         });
-
+        window.location.href = "/"
         const result = await response.json();
         console.log(result)
+
     }
 
 });

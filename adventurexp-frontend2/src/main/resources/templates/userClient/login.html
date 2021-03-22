@@ -31,36 +31,35 @@
                 </div>
 
         <!-- E-mail -->
-        <div class="form-group mb-1 my-3">
-            <label for="E-mail"></label>
-            <input class="form-control" type="email" id="E-mail" name="E-mail" required placeholder="E-mail">
+        <div class="form-group mb-1 mt-5">
+            <input class="form-control" type="email" id="E-mail" name="mail" required placeholder="E-mail">
         </div>
 
         <!-- Password -->
-        <div class="form-group mb-1 my-1">
-            <label for="Kodeord"></label>
-            <input class="form-control" type="password" id="Kodeord" name="Kodeord" required placeholder="Kodeord">
+        <div class="form-group mb-1 mt-3">
+            <input class="form-control" type="password" id="Kodeord" name="password" required placeholder="Kodeord">
         </div>
 
 
-        <div class=" d-flex justify-content-center mt-3 p-4 w-100 login_container">
-            <input type="submit" value="Login" class="btn login_btn"/>
-        </div>
-
-        <div class="form-group ">
+        <div class="form-group mt-5">
             <input type="checkbox" value="lsRememberMe" id="rememberMe">
             <label for="rememberMe">Remember me</label>
+            <input type="submit" value="Login" class="btn login_btn"/>
+
+        </div>
+
+        <div class=" d-flex justify-content-center login_container">
         </div>
 
 <!--        DONT HAVE A PROFILE        -->
         <div class="mt-4">
             <div class="d-flex justify-content-center links">
-                Har du ikke en bruger? <a href="/register" class="ml-2 text-white">Opret Bruger</a>
+                <p class="text-white">Har du ikke en bruger?</p> <a href="/register" class="ml-2 text-primary">Opret Bruger</a>
             </div>
 
 <!--            FOTGOT PASSWORD-->
             <div class="d-flex justify-content-center links">
-                <a href="/contact/" class="text-white">Glemt Kodeord?</a>
+                <a href="/contact/" class="text-white text-primary">Glemt Kodeord?</a>
             </div>
         </div>
     </div>
@@ -70,9 +69,7 @@
 
     </form>
 </main>
-<footer>
     <!--=================== Footer ============================ -->
     <div th:replace="fragments/footer :: footerFragment"></div>
-</footer>
 </body>
 </html>
