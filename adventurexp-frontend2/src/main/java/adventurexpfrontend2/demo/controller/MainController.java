@@ -104,6 +104,16 @@ public class MainController {
         return "redirect:/";
     }
 
+    //-------------------------STAFF----------------------
+
+    @GetMapping("/staff/booking/list")
+    public String bookingList(){ return "/staff/bookingListIndex"; }
+
+    @GetMapping("/staff/booking/list/Closed")
+    public String bookingClosed(){
+        return "/staff/bookingListClosed";
+    }
+
 
     //----------------------------ADMIN-------------------------
     @GetMapping("/admin/register")
