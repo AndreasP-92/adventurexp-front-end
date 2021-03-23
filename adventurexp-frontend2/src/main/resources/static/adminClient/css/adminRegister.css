@@ -1,11 +1,11 @@
-ody{
+body{
     background-repeat: no-repeat, repeat;
     background-position: center;
-    background-color: #099669;
+    background-color: #ffffff;
 }
 
 .contact {
-    background: #636667;
+    background: #3e423f;
     padding:25px;
     display: block;
     margin:20% auto 0 auto;
@@ -31,4 +31,11 @@ ody{
 }
 .mb-5, .my-5 {
     margin-bottom: 0rem !important;
+}
+
+#passwordValid{
+    background-color: #ff5050;
+    border-radius: 25px;
+    text-align: center;
+    color:white;
 }

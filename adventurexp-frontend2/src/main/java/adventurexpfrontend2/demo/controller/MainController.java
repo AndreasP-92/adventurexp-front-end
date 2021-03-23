@@ -54,19 +54,9 @@ public class MainController {
         return "/userClient/contact";
     }
 
-    @GetMapping("/staff/booking/list")
-    public String bookingList(){
-        return "/staff/bookingListIndex";
-    }
-
     @GetMapping("/activity/info")
     public String activityInfo(){
         return "/userClient/activityInfo";
-    }
-
-    @GetMapping("/staff/booking/list/Closed")
-    public String bookingClosed(){
-        return "/staff/bookingListClosed";
     }
 
     @GetMapping("/activity/calender")
@@ -118,9 +108,6 @@ public class MainController {
     //----------------------------ADMIN-------------------------
     @GetMapping("/admin/register")
     public String adminRegister(){return "/adminClient/adminRegister"; }
-
-    @GetMapping("/admin/profilelist")
-    public String adminProfilelist(){return "/adminClient/adminProfilelist";}
 
     @GetMapping("/admin/admin/index")
     public String adminIndex(){
