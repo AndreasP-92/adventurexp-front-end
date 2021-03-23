@@ -59,7 +59,7 @@ public class MainController {
         return "/staff/bookingListIndex";
     }
 
-    @GetMapping("/activity/info")
+    @GetMapping("/activity/info/{name}")
     public String activityInfo(){
         return "/userClient/activityInfo";
     }

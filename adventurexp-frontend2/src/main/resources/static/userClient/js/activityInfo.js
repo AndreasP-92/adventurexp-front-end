@@ -5,7 +5,7 @@ thePath = window.location.pathname;
 const name = thePath.substring(thePath.lastIndexOf('/')+1)
 
 
-const myUrl = `http://localhost:5002/select/activities/${name}`;
+const myUrl = `http://localhost:5002/select/activity/${name}`;
 
 const requestOptions = {
     'content-type': 'application/json',
@@ -16,93 +16,86 @@ const requestOptions = {
 
 fetch(myUrl, requestOptions)
     .then(response => response.json())
-    .then(data => {
-        data.forEach(fillTbody)
+    .then(data  => {
+        fillActivityHeader(data)
+        fillBreadParent(data)
+        fillDuration(data)
+        fillPrice(data)
+        fillPInfo(data)
+        // gotActivityData(data)
         console.log(data)
     })
 
 function gotActivityData(data) {
     console.log('activities====', data)
-    const activitiesMap = data.map(dd => dd);
-    console.log('activitiesMap====', activitiesMap)
+    data.forEach(fillPInfo)
     // activitiesMap.forEach(fillDropDown)
 }
 
-function fillActivityHeader(item, index) {
-    const HeaderParent = document.querySelector('.ActivityHeader')
-    console.log(item.activity);
+function fillActivityHeader(item) {
+    console.log(item)
+    const headerParent = document.querySelector('.activityHeader')
+    console.log(item.name);
 
     // === CREATE h3 ===
     let h3 = document.createElement('h3')
+    h3.textContent = item.name;
+    headerParent.appendChild(h3)
 
     // === CREATE h4 ===
+    let h4 = document.createElement('h4')
+    h4.textContent = "Overlev imod rasende zombier"
+    h4.style.paddingBottom = "5%"
+    headerParent.appendChild(h4)
 
 }
 
-function fillBreadTextParent(item, index){
-    const BreadParent = document.querySelector('.breadText')
-    const duration = document.querySelector('.duration')
-    const price = document.querySelector('.price')
-    const pinfo = document.querySelector('.pinfo')
-
-
-
+function fillBreadParent(item){
+    const breadParent = document.querySelector('.breadText')
 
     // === CREATE ptag ===
     let p = document.createElement('p')
-    BreadParent.appendChild(p)
-
-    // === CREATE ptag ===
-    let p1 = document.createElement('p')
-    p1.textContent = item.activity;
-    p.appendChild(p1);
-
-
-    // === CREATE ptag ===
-
+    p.textContent = item.description;
+    breadParent.appendChild(p)
 
 }
 
+function fillDuration(item){
+    const duration1 = document.querySelector('.duration1')
 
 
+    // === CREATE ptag ===
+    let p1 = document.createElement('p')
+    p1.textContent = item.duration;
+    duration1.appendChild(p1)
 
+    let p2 = document.createElement('p')
+    p2.textContent = item.duration;
+    duration1.appendChild(p2)
 
+    let p3 = document.createElement('p')
+    p3.textContent = item.duration;
+    duration1.appendChild(p3)
+}
+function fillPrice(item){
+    const price = document.querySelector('.price')
 
+    let p1 = document.createElement('p')
+    p1.textContent = "1500 kr"
+    price.appendChild(p1)
 
+    let p2 = document.createElement('p')
+    p2.textContent = "2500 kr"
+    price.appendChild(p2)
 
+    let p3 = document.createElement('p')
+    p3.textContent = "3000 kr"
+    price.appendChild(p3)
+}
+function fillPInfo(item){
+    const pinfo = document.querySelector('.pinfo')
 
-
-
-
-    // === CREATE TR ===
-    let tr = document.createElement('tr')
-    tr.setAttribute('align', 'center');
-    tbody.appendChild(tr);
-
-// === CREATE TH ===
-    let th1 = document.createElement('th');
-    th1.textContent = item.activity;
-    tr.appendChild(th1);
-
-// === CREATE TH ===
-    let th2 = document.createElement('th');
-    th2.textContent = item.datetime;
-    tr.appendChild(th2);
-
-// === CREATE TH ===
-    let th3 = document.createElement('th');
-    th3.textContent = item.paid;
-    tr.appendChild(th3);
-
-// === CREATE TH ===
-    let td = document.createElement('td');
-    tr.appendChild(td)
-
-
-// === CREATE ATAG ===
-    let a = document.createElement('a');
-    a.className = "mt-3 w-75 btn btn-info"
-    a.textContent = "Rediger"
-    a.href = "/booking/history/" + item.id;
-    td.appendChild(a);
+    let p = document.createElement('p')
+    p.textContent = item.practicalInfo;
+    pinfo.appendChild(p)
 }
