@@ -17,6 +17,7 @@ const requestOptions = {
 fetch(myUrl, requestOptions)
     .then(response => response.json())
     .then(data  => {
+        document.body.style.background = `url('${data.pic}') no-repeat`;
         fillActivityHeader(data)
         fillBreadParent(data)
         fillDuration(data)
@@ -35,7 +36,7 @@ function gotActivityData(data) {
 function fillActivityHeader(item) {
     console.log(item)
     const headerParent = document.querySelector('.activityHeader')
-    console.log(item.name);
+    // console.log(item.name);
 
     // === CREATE h3 ===
     let h3 = document.createElement('h3')
@@ -55,6 +56,7 @@ function fillBreadParent(item){
 
     // === CREATE ptag ===
     let p = document.createElement('p')
+    p.className = "text-white"
     p.textContent = item.description;
     breadParent.appendChild(p)
 
@@ -81,16 +83,9 @@ function fillPrice(item){
     const price = document.querySelector('.price')
 
     let p1 = document.createElement('p')
-    p1.textContent = "1500 kr"
+    p1.textContent =item.price;
     price.appendChild(p1)
 
-    let p2 = document.createElement('p')
-    p2.textContent = "2500 kr"
-    price.appendChild(p2)
-
-    let p3 = document.createElement('p')
-    p3.textContent = "3000 kr"
-    price.appendChild(p3)
 }
 function fillPInfo(item){
     const pinfo = document.querySelector('.pinfo')
