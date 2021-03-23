@@ -27,4 +27,10 @@ body{
     width: 83%;
     background-color: #1ca14b !important;
 }
+#passwordValid{
+    background-color: #ff5050;
+    border-radius: 25px;
+    text-align: center;
+    color:white;
+}
 

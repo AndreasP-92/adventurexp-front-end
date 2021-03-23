@@ -1,21 +1,32 @@
 const thisForm = document.getElementById('profileAboutForm');
+const password1 = document.getElementById('newPass');
+const password2 = document.getElementById('repeatPass');
 thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
-    const formData = new FormData(thisForm).entries()
-    const response = await fetch('http://localhost:5002/insert/profile/about', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(Object.fromEntries(formData))
-    });
 
-    const result = await response.json();
-    console.log(result)
+    if(password1.value != password2.value){
+        console.log("test")
+        document.getElementById('passwordValid').innerHTML = "Password skal være ens!";
+    }else if(password1.value == password2.value){
+        const formData = new FormData(thisForm).entries()
+        const response = await fetch('http://localhost:5002/update/user', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(Object.fromEntries(formData))
+        });
+        // window.location.href = "/";
+        const result = await response.json();
+        console.log(result)
+    }
+
 });
+
+
 
 thePath = window.location.pathname;
 const email = thePath.substring(thePath.lastIndexOf('/')+1)
 
-const myUrl = `http://localhost:5002/select/all/profiles/${email}`;
+const myUrl = `http://localhost:5002/select/user/${email}`;
 
 const requestOptions = {
     'content-type': 'application/json',
@@ -31,7 +42,10 @@ fetch(myUrl, requestOptions)
     })
 
 function gotOneMailData(data){
-    document.querySelector('.mail').value = data[0].mail;
+    document.getElementById('mail').value = data.mail;
+    document.getElementById('id').value = data.id;
+    console.log('data======',data.mail)
+
 }
 
 

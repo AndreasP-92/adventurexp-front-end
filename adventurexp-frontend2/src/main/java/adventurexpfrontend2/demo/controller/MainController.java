@@ -70,7 +70,7 @@ public class MainController {
     }
 
 
-    private final String UPLOAD_DIR = "./src/main/resources/static/images/";
+    private final String UPLOAD_DIR = "./src/main/resources/static/images/events/";
 
     @PostMapping("/upload")
     public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes attributes) {

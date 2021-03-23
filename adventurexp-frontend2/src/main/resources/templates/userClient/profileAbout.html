@@ -31,13 +31,14 @@
         </div>
         <form id="profileAboutForm" class="contact w-75"style="margin-top: 10%;" action="/insert/project" method="post">
             <div class="valid" id="notFilled"></div>
+            <input class="form-control mail"  type="text" hidden id="id" name="id" placeholder="Ny E-Mail adresse">
 
             <h3 class="text-center">Rediger login info</h3>
 
             <!-- NEW EMAIL -->
             <div class="form-group ml-5 mr-5">
-                <label for="newEmail">Indtast ny E-mail</label>
-                <input class="form-control mail"  type="email" id="newEmail" name="mail" required placeholder="Ny E-Mail adresse">
+                <label for="mail">Indtast ny E-mail</label>
+                <input class="form-control mail"  type="email" id="mail" name="mail" required placeholder="Ny E-Mail adresse">
             </div>
 
             <!-- NEW PASSWORD -->
@@ -48,12 +49,13 @@
 
             <!-- REPEAT NEW PASSWORD -->
             <div class="form-group ml-5 mr-5">
+                <div id="passwordValid" class="mt-2"></div>
                 <label for="repeatPass">Gentag kodeord</label>
                 <input class="form-control" type="password" id="repeatPass" name="repeatNewPassword" required placeholder="Gentag kodeord">
             </div>
 
-                    <!-- SUBMIT -->
-                    <button type="submit"  class="btn btn-success ml-5 mr-5 text-dark">Gem ændringer</button>
+            <!-- SUBMIT -->
+            <button type="submit"  class="btn btn-success ml-5 mr-5 text-dark">Gem ændringer</button>
         </form>
     </div>
 </main>
