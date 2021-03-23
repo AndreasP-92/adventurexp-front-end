@@ -75,6 +75,8 @@ public class MainController {
     }
 
 
+
+
     private final String UPLOAD_DIR = "./src/main/resources/static/images/";
 
     @PostMapping("/upload")
