@@ -6,6 +6,9 @@ const activity_avail_end = document.getElementById('activity_avail_end');
 const activity_min_age = document.getElementById('activity_min_age');
 const activity_group_size = document.getElementById('activity_group_size');
 const activity_desc = document.getElementById('activity_desc');
+const activity_price = document.getElementById('activity_price');
+const activity_subheading = document.getElementById('activity_subheading');
+const activity_practical_info = document.getElementById('activity_practical_info');
 alert("test")
 
 
@@ -23,7 +26,10 @@ thisForm.addEventListener('submit', async function (e) {
             'age'           : activity_min_age.value,
             'size'          : activity_group_size.value,
             'description'   : activity_desc.value,
-            'pic'           : filename
+            'pic'           : filename,
+            'price'         : activity_price.value,
+            // 'subheading'    : activity_subheading,
+            'practicalinfo' : "Test"
         }),
         headers: {
             'Content-type': 'application/json; charset=UTF-8'
