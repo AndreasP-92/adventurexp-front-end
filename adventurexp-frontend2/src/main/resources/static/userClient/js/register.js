@@ -6,11 +6,11 @@ const firstname = document.getElementById('firstname');
 const lastname  = document.getElementById('lastname');
 const phone     = document.getElementById('phone');
 
-// alert("test")
+//     === EVENT LISTENER ===
+
 thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
-    // const formData = new FormData(thisForm).entries()
-    // const formData2 = new FormData(thisForm).entries()
+
     if(password2.value != password.value){
         console.log("test")
         document.getElementById('passwordValid').innerHTML = "Password skal være ens!";
@@ -19,12 +19,9 @@ thisForm.addEventListener('submit', async function (e) {
         await insertAuth();
         window.location.href = "/login"
     }
-    // await insertProfile(formData)
-    // await  insertUser(formData2)
-
-
-
 });
+
+//     === INSERT USER ===
 
 async function insertUser(){
     await fetch('http://localhost:5002/insert/user',{
@@ -47,10 +44,9 @@ async function insertUser(){
         console.log(data)
     }).catch(function (error) {
         console.warn('Something went wrong.', error);
-
-
     })
 }
+//     === INSERT AUTH ===
 
 async function insertAuth(){
     await fetch('http://localhost:5002/insert/auth',{
@@ -72,7 +68,5 @@ async function insertAuth(){
         console.log(data)
     }).catch(function (error) {
         console.warn('Something went wrong.', error);
-
-
     })
 }
