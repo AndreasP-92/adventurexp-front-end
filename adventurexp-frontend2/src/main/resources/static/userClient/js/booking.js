@@ -1,5 +1,6 @@
 const thisForm = document.getElementById('bookingForm');
 const termsOfUse = document.getElementById('termsOfUse');
+const price  = document.getElementById('price');
 
 thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -49,4 +50,10 @@ function fillDropDown(item, index){
     console.log("ITEM=====",item.name)
     el.value = item.name;
     activitySelector.appendChild(el);
+}
+
+function myPrice() {
+    document.getElementById("myPrice").innerHTML=("Prisen er: <b style='color.red;'>"+bookingForm.activity(bookingForm.activity.selectedIndex).text+'</b>')
+
+    // document.getElementById("showPrice").innerHTML = "You selected: " + x;
 }
