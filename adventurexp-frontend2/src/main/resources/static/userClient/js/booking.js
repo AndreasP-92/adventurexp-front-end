@@ -53,7 +53,7 @@ function fillDropDown(item, index){
 }
 
 function myPrice() {
-    document.getElementById("myPrice").innerHTML=("Prisen er: <b style='color.red;'>"+bookingForm.activity(bookingForm.activity.selectedIndex).text+'</b>')
+    document.getElementById("myPrice").innerHTML=("Prisen er: <b style='color.red;'>"+thisForm.activity(thisForm.activity.selectedIndex).text+'</b>')
 
     // document.getElementById("showPrice").innerHTML = "You selected: " + x;
 }
