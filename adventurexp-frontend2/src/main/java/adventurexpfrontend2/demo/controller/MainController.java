@@ -13,12 +13,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.security.Principal;
 
 @Controller
 public class MainController {
     @GetMapping("/")
-    public String index(Principal principal){
+    public String index(){
         return "/userClient/index";
     }
 //
@@ -60,7 +59,7 @@ public class MainController {
         return "/staff/bookingListIndex";
     }
 
-    @GetMapping("/activity/info")
+    @GetMapping("/activity/info/{name}")
     public String activityInfo(){
         return "/userClient/activityInfo";
     }

@@ -5,7 +5,6 @@
     <title>Lav et Event</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link href="/userClient/css/formStyle.css" type="text/css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -23,17 +22,17 @@
 
             </div>
 
-            <!-- ACTIVITY PERIOD START -->
-            <div class="form-group ml-5 mr-5">
-                <label for="activity_avail_start">Aktivitetes Periode Start</label>
-                <input rows="3" class="form-control" type="date" id="activity_avail_start" require name="starts" placeholder="Aktivitets Periode Start" >
-            </div>
+        <!-- ACTIVITY PERIOD START -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_avail_start">Aktivitetes Periode Start</label>
+            <input rows="3" class="form-control" type="date" id="activity_avail_start"  name="starts" placeholder="Aktivitets Periode Start" >
+        </div>
 
-            <!-- Activity Period End -->
-            <div class="form-group ml-5 mr-5">
-                <label for="activity_avail_end">Aktivitetes Periode Slut</label>
-                <input id="activity_avail_end" class="form-control" type="date" name="ends" require>
-            </div>
+        <!-- Activity Period End -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_avail_end">Aktivitetes Periode Slut</label>
+            <input id="activity_avail_end" class="form-control" type="date" name="ends" >
+        </div>
 
             <!-- Activity DURATION -->
             <div class="form-group ml-5 mr-5">
@@ -53,29 +52,36 @@
                 <input class="form-control" type="number" id="activity_min_age" name="age" require>
             </div>
 
-            <!-- Activity Size -->
-            <div class="form-group ml-5 mr-5">
-                <label for="activity_group_size">Aktivitets Antal Deltagere</label>
-                <input class="form-control" id="activity_group_size" type="number" name="size"require>
-            </div>
+        <!-- Activity Size -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_group_size">Aktivitets Antal Deltagere</label>
+            <input class="form-control" id="activity_group_size" type="number" name="size">
+        </div>
 
-            <!-- Activity Description -->
-            <div class="form-group ml-5 mr-5">
-                <label for="activity_desc">Aktivitetes Beskrivelse</label>
-                <textarea class="form-control" id="activity_desc" name="description" rows="3" require></textarea>
-            </div>
+        <!-- Activity Price -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_price">Aktivitets pris</label>
+            <input class="form-control" id="activity_price" type="number" name="price">
+        </div>
 
-            <!-- Activity Picture -->
-            <div class="form-group ml-5 mr-5">
-                <!--            <p th:text="${message}" th:if="${message == null}" class="alert alert-primary">Indsæt venligst et gyldigt Billede</p>-->
-                <label for="activity_pic">Indsæt billede</label>
+        <!-- Activity Description -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_desc">Aktivitetes Beskrivelse</label>
+            <textarea class="form-control" id="activity_desc" name="description" rows="3"></textarea>
+        </div>
 
-                <!-- UPLOAD IMAGE -->
-                <input class="form-control-file" id="activity_pic" name="file" type="file" >
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <!-- Cancel Creation -->
+
+        <!-- Activity Picture -->
+        <div class="form-group ml-5 mr-5">
+            <!--            <p th:text="${message}" th:if="${message == null}" class="alert alert-primary">Indsæt venligst et gyldigt Billede</p>-->
+            <label for="activity_pic">Indsæt billede</label>
+
+            <!-- UPLOAD IMAGE -->
+            <input class="form-control-file" id="activity_pic" name="file" type="file" >
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Cancel Creation -->
 
                     <a href="/" class="w-50 btn form-button ml-5 mr-5" >Anuller</a>
                 </div>
@@ -84,13 +90,13 @@
                     <button type="submit" class="w-50 btn form-button ml-5 mr-5">Gem</button>
                 </div>
 
-            </div>
+        </div>
 
-        </form>
-    </main>
-    <footer>
-        <!--=================== Footer ============================ -->
-    </footer>
+    </form>
+</main>
+<footer>
+    <!--=================== Footer ============================ -->
+</footer>
 </body>
 <script src="/userClient/js/activity.js"></script>
 </html>
