@@ -18,6 +18,7 @@ thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const myUrl = `http://localhost:5002/select/activity/${activity_name.value}`;
+
     const requestOptions = {
     'content-type': 'application/json',
     method: 'GET',
@@ -83,7 +84,7 @@ async function insertActivity(optionValues){
             'description'   : activity_desc.value,
             'pic'           : '/images/events/'+filename,
             'price'         : activity_price.value,
-            'subheading'    : "activity_subheading.value",
+            'subheading'    : "Her er en subheading",
             'practicalinfo' : activity_practical_info.value
         }),
         headers: {
