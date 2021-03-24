@@ -1,15 +1,14 @@
 body{
-    background-image: url("/images/adventure.jpg");
     background-repeat: no-repeat, repeat;
     background-position: center;
-    background-color: #099669;
+    background-color: white;
 }
 
 .contact {
     background: #707070d9;
     padding:25px;
     display: block;
-    margin:20% auto 0 auto;
+    margin:10% auto 0 auto;
 }
 
 .contact h3 {
@@ -37,6 +36,11 @@ body{
 #alreadyExists{
     background-color: #ff5050;
     border-radius: 25px;
+}
+
+.fas fa-arrow-left{
+    background-color: black !important;
+    font-size: 36px !important;
 }
 
 
