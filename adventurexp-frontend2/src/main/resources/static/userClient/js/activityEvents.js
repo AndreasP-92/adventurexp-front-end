@@ -35,6 +35,41 @@ $(document).ready(function() {
     });
 
 
+    /* fetch the dates
+    -----------------------------------------------------------------*/
+
+
+    thePath = window.location.pathname;
+    const activity = thePath.substring(thePath.lastIndexOf('/')+1)
+
+    const myUrl = `http://localhost:5002/select/all/events/bowling`;
+
+    let events = []
+
+    const requestOptions = {
+        'content-type': 'application/json',
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+
+    fetch(myUrl, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            console.log("data======",data)
+            events =data.map(dd => ({
+                title : dd.name,
+                start : dd.starts,
+                end: dd.ends
+            }))
+            console.log("EVENTS======",events)
+            // data.forEach(fillArray)
+        })
+
+    function fillArray(item, index){
+
+    }
+
     /* initialize the calendar
     -----------------------------------------------------------------*/
 
@@ -103,53 +138,54 @@ $(document).ready(function() {
 
         },
 
-        events: [
-            {
-                title: 'Paint Ball Event',
-                start: new Date(2021, 0, 1),
-                end: new Date(2021, 1, 1)
-            },
-            {
-                id: 999,
-                title: 'Repeating Eventttttt',
-                start: new Date(y, m, d-3, 16, 0),
-                allDay: false,
-                className: 'info'
-            },
-            {
-                id: 999,
-                title: 'Repeating Event',
-                start: new Date(y, m, d+4, 16, 0),
-                allDay: false,
-                className: 'info'
-            },
-            {
-                title: 'Meeting',
-                start: new Date(y, m, d, 10, 30),
-                allDay: false,
-                className: 'important'
-            },
-            {
-                title: 'Lunch',
-                start: new Date(y, m, d, 12, 0),
-                end: new Date(y, m, d, 14, 0),
-                allDay: false,
-                className: 'important'
-            },
-            {
-                title: 'Birthday Party',
-                start: new Date(y, m, d+1, 19, 0),
-                end: new Date(y, m, d+1, 22, 30),
-                allDay: false,
-            },
-            {
-                title: 'Click for Google',
-                start: new Date(y, m, 28),
-                end: new Date(y, m, 29),
-                url: 'https://ccp.cloudaccess.net/aff.php?aff=5188',
-                className: 'success'
-            }
-        ],
+        events: events
+        //     [
+        //     {
+        //         title: 'Paint Ball Event',
+        //         start: new Date(2021, 0, 1),
+        //         end: new Date(2021, 1, 1)
+        //     },
+        //     {
+        //         id: 999,
+        //         title: 'Repeating Eventttttt',
+        //         start: new Date(y, m, d-3, 16, 0),
+        //         allDay: false,
+        //         className: 'info'
+        //     },
+        //     {
+        //         id: 999,
+        //         title: 'Repeating Event',
+        //         start: new Date(y, m, d+4, 16, 0),
+        //         allDay: false,
+        //         className: 'info'
+        //     },
+        //     {
+        //         title: 'Meeting',
+        //         start: new Date(y, m, d, 10, 30),
+        //         allDay: false,
+        //         className: 'important'
+        //     },
+        //     {
+        //         title: 'Lunch',
+        //         start: new Date(y, m, d, 12, 0),
+        //         end: new Date(y, m, d, 14, 0),
+        //         allDay: false,
+        //         className: 'important'
+        //     },
+        //     {
+        //         title: 'Birthday Party',
+        //         start: new Date(y, m, d+1, 19, 0),
+        //         end: new Date(y, m, d+1, 22, 30),
+        //         allDay: false,
+        //     },
+        //     {
+        //         title: 'Click for Google',
+        //         start: new Date(y, m, 28),
+        //         end: new Date(y, m, 29),
+        //         url: 'https://ccp.cloudaccess.net/aff.php?aff=5188',
+        //         className: 'success'
+        //     }
+        // ],
     });
 
 
