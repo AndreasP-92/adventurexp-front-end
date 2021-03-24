@@ -79,6 +79,7 @@ public class MainController {
 
     private final String UPLOAD_DIR = "./src/main/resources/static/images/";
 
+
     @PostMapping("/upload")
     public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes attributes) {
 
@@ -113,4 +114,33 @@ public class MainController {
     @GetMapping("/admin/profilelist")
     public String adminProfilelist(){return "/adminClient/adminProfilelist";}
 
+    @GetMapping("/admin/admin/index")
+    public String adminIndex(){
+        return "/adminClient/adminIndex";
+    }
+
+    @GetMapping("/admin/lookupprofiles")
+    public String adminLookUpProfiles(){
+        return "/adminClient/adminLookUpProfiles";
+    }
+
+    @GetMapping("/admin/lookupbookings")
+    public String adminLookUpBookings(){
+        return "/adminClient/adminLookUpBookings";
+    }
+
+    @GetMapping("/admin/lookupevents")
+    public String adminLookUpEvents(){
+        return "/adminClient/adminLookUpEvents";
+    }
+
+    @GetMapping("/admin/support")
+    public String adminSupport(){
+        return "/adminClient/adminSupport";
+    }
+
+    @GetMapping("/admin/asigned/ticket")
+    public String adminAsignedTicket(){
+        return "/adminClient/adminAsignedTicket";
+    }
 }
