@@ -45,7 +45,7 @@ function fillActivityHeader(item) {
 
     // === CREATE h4 ===
     let h4 = document.createElement('h4')
-    h4.textContent = "Overlev imod rasende zombier"
+    h4.textContent = item.subheading;
     h4.style.paddingBottom = "5%"
     headerParent.appendChild(h4)
 
@@ -91,6 +91,6 @@ function fillPInfo(item){
     const pinfo = document.querySelector('.pinfo')
 
     let p = document.createElement('p')
-    p.textContent = item.practicalInfo;
+    p.textContent = item.practicalinfo;
     pinfo.appendChild(p)
 }
