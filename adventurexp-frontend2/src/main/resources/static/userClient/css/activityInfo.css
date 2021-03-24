@@ -1,8 +1,9 @@
 body{
-    background-image: url("/images/adventure.jpg");
-    background-repeat: no-repeat, repeat;
+    background-image: url("/images/activityBG.jpg");
+    background-repeat: no-repeat;
     background-position: center;
     background-color: #099669;
+    background-size: cover;
 }
 
 .activity{
