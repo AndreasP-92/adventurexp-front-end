@@ -29,7 +29,7 @@ function fillActivities(item, index){
 
 // === CREATE ATAG ===
     let aTag = document.createElement('a')
-    aTag.href = item.id;
+    aTag.href = "activity/info/"+item.name;
     div.appendChild(aTag);
 
 // === CREATE IMAGE TAG ===
