@@ -28,8 +28,8 @@ thisForm.addEventListener('submit', async function (e) {
             'description'   : activity_desc.value,
             'pic'           : filename,
             'price'         : activity_price.value,
-            // 'subheading'    : activity_subheading,
-            'practicalinfo' : "Test"
+            'subheading'    : activity_subheading.value,
+            'practicalinfo' : activity_practical_info.value
         }),
         headers: {
             'Content-type': 'application/json; charset=UTF-8'
