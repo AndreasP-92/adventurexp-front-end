@@ -21,7 +21,7 @@ thisForm.addEventListener('submit', async function (e) {
 
 });
 const mail = "and@and";
-const myUrl = `http://localhost:5002/select/activities/`;
+const myUrl = `http://localhost:5002/select/activities`;
 
 const requestOptions = {
     'content-type': 'application/json',
@@ -37,10 +37,7 @@ fetch(myUrl, requestOptions)
     })
 
 function gotActivityData(data){
-    console.log('activities====',data)
-    const activitiesMap = data.map(dd => dd.name);
-    console.log('activitiesMap====',activitiesMap)
-    activitiesMap.forEach(fillDropDown)
+    data.forEach(fillDropDown)
 
 }
 
@@ -48,8 +45,8 @@ function fillDropDown(item, index){
     const activitySelector = document.querySelector('.activiySelector')
 
     let el = document.createElement("option");
-    el.textContent = item;
-    console.log("ITEM=====",item)
-    el.value = item;
+    el.textContent = item.name;
+    console.log("ITEM=====",item.name)
+    el.value = item.name;
     activitySelector.appendChild(el);
 }

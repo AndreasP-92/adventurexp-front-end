@@ -9,8 +9,8 @@ const activity_desc = document.getElementById('activity_desc');
 const activity_price = document.getElementById('activity_price');
 const activity_subheading = document.getElementById('activity_subheading');
 const activity_practical_info = document.getElementById('activity_practical_info');
-alert("test")
 
+// ============== GET ACTIVITY ==============
 
 thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -39,26 +39,11 @@ thisForm.addEventListener('submit', async function (e) {
         await insertActivity(optionValues);
     })
 
-
-
-    //
-    // for(let i = 0; optionValues.length > i; i++){
-    //     console.log(optionValues[i])
-    //     await insertDuration(optionValues[i])
-    // }
-
-
-
 });
 
-async function insertDuration(duration_time, ac_name){
+// ============== INSERT DURATION ==============
 
-    // const url = `http://localhost:5002/select/activity/${activity_name.value}`;
-    // const requestOptions = {
-    //     'content-type': 'application/json',
-    //     method: 'GET',
-    //     redirect: 'follow'
-    // };
+async function insertDuration(duration_time, ac_name){
 
     console.log('INSERT DURATION =====',duration_time);
 
@@ -89,6 +74,8 @@ async function insertDuration(duration_time, ac_name){
 
 
 }
+
+// ============== INSERT ACTIVITY ==============
 
 async function insertActivity(optionValues){
     const filename = activity_pic.files[0].name;
