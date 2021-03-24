@@ -92,7 +92,7 @@ async function insertActivity(optionValues){
             'description'   : activity_desc.value,
             'pic'           : '/images/events/'+filename,
             'price'         : activity_price.value,
-            'subheading'    : activity_subheading.value,
+            'subheading'    : "Her er en subheading",
             'practicalinfo' : activity_practical_info.value
         }),
         headers: {
