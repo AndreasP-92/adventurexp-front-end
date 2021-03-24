@@ -4,13 +4,10 @@ const efternavn = document.getElementById('Efternavn');
 const email = document.getElementById('E-mail');
 const beskrivelse = document.getElementById('Beskrivelse');
 
-alert("test")
-
+//======= EVENT LISTERNER =======================
 
 thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
-
-    const formData = new FormData(thisForm).entries()
 
 
     fetch('http://localhost:5002/insert/ticket', {
@@ -32,7 +29,7 @@ thisForm.addEventListener('submit', async function (e) {
         }
         return Promise.reject(response);
     }).then(function (data) {
-        // thisForm.submit();
+        window.location.href = "/"
         console.log(data)
     }).catch(function (error) {
         console.warn('Something went wrong.', error);

@@ -1,6 +1,10 @@
+//======== PROFILEABOUT ========
+
 const thisForm = document.getElementById('profileAboutForm');
 const password1 = document.getElementById('newPass');
 const password2 = document.getElementById('repeatPass');
+
+//======== EVENT LISTENER ========
 thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
 
@@ -14,14 +18,14 @@ thisForm.addEventListener('submit', async function (e) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(Object.fromEntries(formData))
         });
-        // window.location.href = "/";
+        window.location.href = "/";
         const result = await response.json();
         console.log(result)
     }
 
 });
 
-
+//======== FETCH MAIL ========
 
 thePath = window.location.pathname;
 const email = thePath.substring(thePath.lastIndexOf('/')+1)
@@ -41,6 +45,7 @@ fetch(myUrl, requestOptions)
         console.log(data)
     })
 
+//======== PRINT MAIL ========
 function gotOneMailData(data){
     document.getElementById('mail').value = data.mail;
     document.getElementById('id').value = data.id;

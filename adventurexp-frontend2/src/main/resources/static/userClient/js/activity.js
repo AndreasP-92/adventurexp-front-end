@@ -12,17 +12,17 @@ const activity_practical_info = document.getElementById('activity_practical_info
 
 // ============== GET ACTIVITY ==============
 
+//     === EVENT LISTENER ===
+
 thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const myUrl = `http://localhost:5002/select/activity/${activity_name.value}`;
-
     const requestOptions = {
     'content-type': 'application/json',
     method: 'GET',
     redirect: 'follow'
     };
-
 
     fetch(myUrl, requestOptions)
     .then(response => response.json())
@@ -32,13 +32,11 @@ thisForm.addEventListener('submit', async function (e) {
             console.log("findes allerede")
             document.getElementById('alreadyExists').innerHTML = "Event Eksistere allerede";
 
-
     }).catch(async function(){
         console.log("Findes ikke")
         let optionValues = $('#duration').val();
         await insertActivity(optionValues);
     })
-
 });
 
 // ============== INSERT DURATION ==============
@@ -62,24 +60,17 @@ async function insertDuration(duration_time, ac_name){
                 }
                 return Promise.reject(response);
             }).then(function (data) {
-                // thisForm.submit();
                 console.log(data)
             }).catch(function (error) {
                 console.warn('Something went wrong.', error);
 
-
             });
-
-
-
-
 }
 
 // ============== INSERT ACTIVITY ==============
 
 async function insertActivity(optionValues){
     const filename = activity_pic.files[0].name;
-
 
     fetch('http://localhost:5002/insert/activity', {
         method: 'POST',
@@ -92,7 +83,7 @@ async function insertActivity(optionValues){
             'description'   : activity_desc.value,
             'pic'           : '/images/events/'+filename,
             'price'         : activity_price.value,
-            'subheading'    : activity_subheading.value,
+            'subheading'    : "activity_subheading.value",
             'practicalinfo' : activity_practical_info.value
         }),
         headers: {
@@ -110,11 +101,9 @@ async function insertActivity(optionValues){
             console.log("OPTIONS====",optionValues[i])
             insertDuration(optionValues[i], data.name)
         }
-        thisForm.submit();
+        // thisForm.submit();
     }).catch(function (error) {
         console.warn('Something went wrong.', error);
-
-
     });
 }
 
