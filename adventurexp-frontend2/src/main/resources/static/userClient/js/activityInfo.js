@@ -1,9 +1,6 @@
 //======== GET ONE ACTIVITY ========
-
-
 thePath = window.location.pathname;
 const name = thePath.substring(thePath.lastIndexOf('/')+1)
-
 
 const myUrl = `http://localhost:5002/select/activity/${name}`;
 
@@ -13,7 +10,7 @@ const requestOptions = {
     redirect: 'follow'
 };
 
-
+//======== FETCH ACTIVITY ========
 fetch(myUrl, requestOptions)
     .then(response => response.json())
     .then(data  => {
@@ -23,20 +20,12 @@ fetch(myUrl, requestOptions)
         fillDuration(data)
         fillPrice(data)
         fillPInfo(data)
-        // gotActivityData(data)
         console.log(data)
     })
-
-function gotActivityData(data) {
-    console.log('activities====', data)
-    data.forEach(fillPInfo)
-    // activitiesMap.forEach(fillDropDown)
-}
-
+//======== FILL ACTIVITY HEADER FUNCTION ========
 function fillActivityHeader(item) {
     console.log(item)
     const headerParent = document.querySelector('.activityHeader')
-    // console.log(item.name);
 
     // === CREATE h3 ===
     let h3 = document.createElement('h3')
@@ -50,6 +39,7 @@ function fillActivityHeader(item) {
     headerParent.appendChild(h4)
 
 }
+//======== FILL BREAD PARENT FUNCTION ========
 
 function fillBreadParent(item){
     const breadParent = document.querySelector('.breadText')
@@ -61,6 +51,7 @@ function fillBreadParent(item){
     breadParent.appendChild(p)
 
 }
+//======== FILL DURATION FUNCTION ========
 
 function fillDuration(item){
     const duration1 = document.querySelector('.duration1')
@@ -79,6 +70,8 @@ function fillDuration(item){
     p3.textContent = item.duration;
     duration1.appendChild(p3)
 }
+
+//======== FILL PRICE FUNCTION ========
 function fillPrice(item){
     const price = document.querySelector('.price')
 
@@ -87,6 +80,8 @@ function fillPrice(item){
     price.appendChild(p1)
 
 }
+
+//======== FILL PINFO FUNCTION ========
 function fillPInfo(item){
     const pinfo = document.querySelector('.pinfo')
 
