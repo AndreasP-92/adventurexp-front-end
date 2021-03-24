@@ -14,7 +14,6 @@ const requestOptions = {
 fetch(myUrl, requestOptions)
     .then(response => response.json())
     .then(data  => {
-        document.body.style.background = `url('${data.pic}') no-repeat`;
         fillActivityHeader(data)
         fillBreadParent(data)
         fillDuration(data)

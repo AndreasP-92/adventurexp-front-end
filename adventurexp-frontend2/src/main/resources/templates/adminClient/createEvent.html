@@ -24,8 +24,13 @@
                 <label for="activity_name">Aktivitet navn</label>
                 <input class="form-control" type="text" id="activity_name" name="name" placeholder="Aktivitetes Navn" require>
                 <div class="mt-3" id="alreadyExists"></div>
-
             </div>
+
+        <!-- ACTIVITY SUBHEADING -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_subheading">Aktivitets under overskrift</label>
+            <input class="form-control" type="text" id="activity_subheading" name="subheading" require placeholder="Aktivitets under overskrift" >
+        </div>
 
         <!-- ACTIVITY PERIOD START -->
         <div class="form-group ml-5 mr-5">
@@ -84,7 +89,6 @@
 
         <!-- Activity Picture -->
         <div class="form-group ml-5 mr-5">
-            <!--            <p th:text="${message}" th:if="${message == null}" class="alert alert-primary">Indsæt venligst et gyldigt Billede</p>-->
             <label for="activity_pic">Indsæt billede</label>
 
             <!-- UPLOAD IMAGE -->
