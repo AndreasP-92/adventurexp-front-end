@@ -38,7 +38,6 @@ $(document).ready(function() {
     /* fetch the dates
     -----------------------------------------------------------------*/
 
-
     const myUrl = `http://localhost:5002/select/all/events/bowling`;
 
     let eventArray = []
@@ -49,39 +48,30 @@ $(document).ready(function() {
         redirect: 'follow'
     };
 
-
-
-
     async function fetchFunction(){
         await fetch(myUrl, requestOptions)
             .then(response => response.json())
             .then(data => {
-                // eventArray = data.forEach(fillArray)
                 console.log("data======",data)
 
                 eventArray = data.map(dd => (
-                    // dStart = new Date(2021, 1, 22 );
-                    // dEnd = new Date(2021, 3, 22);
-
                     {
                         title : dd.name,
                         start : new Date(2021, 1, 22),
                         end: new Date(2021, 3, 22)
-                    }))
+                    }
+                ))
 
-
-                // data.forEach(fillArray)
-                // console.log(eventArray)
-            console.log("EVENTS======11111",eventArray);
+            // console.log("EVENTS======11111",eventArray);
             });
-        console.log("EVENTS======22222",eventArray);
+        // console.log("EVENTS======22222",eventArray);
 
         return eventArray;
 
     }
 
     async function fetched(){
-        console.log("EVENTS======3333",await fetchFunction())
+        // console.log("EVENTS======3333",await fetchFunction())
 
         var calendar =  $('#calendar').fullCalendar({
             header: {
@@ -207,14 +197,8 @@ $(document).ready(function() {
         // return calendar;
 
     }
-    fetched();
-    // console.log("EVENTS======4444",fetched())
-    // fetchFunction()
 
     /* initialize the calendar
     -----------------------------------------------------------------*/
-
-
-
-
+    fetched();
 });
