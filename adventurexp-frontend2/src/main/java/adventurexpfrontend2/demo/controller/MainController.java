@@ -59,11 +59,6 @@ public class MainController {
         return "/userClient/activityInfo";
     }
 
-    @GetMapping("/staff/booking/list/Closed")
-    public String bookingClosed(){
-        return "/staff/bookingListClosed";
-    }
-
     @GetMapping("/activity/calender")
     public String activityAvailable(){
         return "/userClient/activityAvailable";
@@ -101,28 +96,30 @@ public class MainController {
 
 
     //----------------------------ADMIN-------------------------
+    @GetMapping("/admin/bookings/closed")
+    public String bookingClosed(){
+        return "/adminClient/BookingListClosed";
+    }
+
     @GetMapping("/admin/register")
     public String adminRegister(){return "/adminClient/adminRegister"; }
 
-    @GetMapping("/admin/profilelist")
-    public String adminProfilelist(){return "/adminClient/adminProfilelist";}
-
-    @GetMapping("/admin/admin/index")
+    @GetMapping("/admin/index")
     public String adminIndex(){
         return "/adminClient/adminIndex";
     }
 
-    @GetMapping("/admin/lookupprofiles")
+    @GetMapping("/admin/profiles")
     public String adminLookUpProfiles(){
         return "/adminClient/adminLookUpProfiles";
     }
 
-    @GetMapping("/admin/lookupbookings")
+    @GetMapping("/admin/bookings")
     public String adminLookUpBookings(){
-        return "/adminClient/adminLookUpBookings";
+        return "/adminClient/bookingListIndex";
     }
 
-    @GetMapping("/admin/lookupevents")
+    @GetMapping("/admin/activities")
     public String adminLookUpEvents(){
         return "/adminClient/adminLookUpEvents";
     }
@@ -139,6 +136,6 @@ public class MainController {
 
     @GetMapping("/admin/createevent")
     public String createEvent(){
-        return "/staff/createEvent";
+        return "/adminClient/createEvent";
     }
 }

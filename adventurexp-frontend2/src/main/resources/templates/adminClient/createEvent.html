@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Lav et Event</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link href="/userClient/css/formStyle.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <header>
-    </header>
-    <main class="container" align="">
-        <!-- === CREATE EVENT === -->
-        <form class="contact w-50" action="/upload" method="post" id="activityForm" require enctype="multipart/form-data">
 <main class="container" align="">
-    <a href="/admin/admin/index" style="color:black;">
+    <a href="/admin/activities" style="color:black;">
         <i class='fas fa-arrow-left mt-5' style='font-size:36px'></i>
     </a>
     <!-- === CREATE EVENT === -->
@@ -25,7 +22,7 @@
             <!-- ACTIVITY NAME -->
             <div class="form-group ml-5 mr-5">
                 <label for="activity_name">Aktivitet navn</label>
-                <input class="form-control" type="text" id="activity_name" name="name" require placeholder="Aktivitetes Navn" >
+                <input class="form-control" type="text" id="activity_name" name="name" placeholder="Aktivitetes Navn" require>
                 <div class="mt-3" id="alreadyExists"></div>
 
             </div>
@@ -33,19 +30,19 @@
         <!-- ACTIVITY PERIOD START -->
         <div class="form-group ml-5 mr-5">
             <label for="activity_avail_start">Aktivitetes Periode Start</label>
-            <input rows="3" class="form-control" type="date" id="activity_avail_start"  name="starts" placeholder="Aktivitets Periode Start" >
+            <input rows="3" class="form-control" type="date" id="activity_avail_start"  name="starts" placeholder="Aktivitets Periode Start" require>
         </div>
 
         <!-- Activity Period End -->
         <div class="form-group ml-5 mr-5">
             <label for="activity_avail_end">Aktivitetes Periode Slut</label>
-            <input id="activity_avail_end" class="form-control" type="date" name="ends" >
+            <input id="activity_avail_end" class="form-control" type="date" name="ends" require>
         </div>
 
             <!-- Activity DURATION -->
             <div class="form-group ml-5 mr-5">
                 <label for="duration">Aktivitetets Varighed</label>
-                <select id="duration" class="form-control" multiple="">
+                <select id="duration" class="form-control" multiple require>
                     <option value="1">1 Time</option>
                     <option value="2">2 Timer</option>
                     <option value="12">12 Timer</option>
@@ -63,25 +60,25 @@
         <!-- Activity Size -->
         <div class="form-group ml-5 mr-5">
             <label for="activity_group_size">Aktivitets Antal Deltagere</label>
-            <input class="form-control" id="activity_group_size" type="number" name="size">
+            <input class="form-control" id="activity_group_size" type="number" name="size" require>
         </div>
 
         <!-- Activity Price -->
         <div class="form-group ml-5 mr-5">
             <label for="activity_price">Aktivitets pris</label>
-            <input class="form-control" id="activity_price" type="number" name="price">
+            <input class="form-control" id="activity_price" type="number" name="price" require>
         </div>
 
         <!-- Activity Description -->
         <div class="form-group ml-5 mr-5">
             <label for="activity_desc">Aktivitetes Beskrivelse</label>
-            <textarea class="form-control" id="activity_desc" name="description" rows="3"></textarea>
+            <textarea class="form-control" id="activity_desc" name="description" rows="3" require></textarea>
         </div>
 
         <!-- Activity PRACTICAL INFO -->
         <div class="form-group ml-5 mr-5">
             <label for="activity_practical_info">Aktivitetes praktisk information</label>
-            <textarea class="form-control" id="activity_practical_info" name="practicalinfo" rows="3"></textarea>
+            <textarea class="form-control" id="activity_practical_info" name="practicalinfo" rows="3" require></textarea>
         </div>
 
 
@@ -97,20 +94,18 @@
             <div class="col-md-6">
                 <!-- Cancel Creation -->
 
-                    <a href="/" class="w-50 btn form-button ml-5 mr-5" >Anuller</a>
-                </div>
-                <div class="col-md-6 pl-5">
-                    <!-- SUBMIT -->
-                    <button type="submit" class="w-50 btn form-button ml-5 mr-5">Gem</button>
-                </div>
+                <a href="/" class="w-50 btn form-button ml-5 mr-5" >Anuller</a>
+            </div>
+            <div class="col-md-6 pl-5">
+                <!-- SUBMIT -->
+                <button type="submit" class="w-50 btn form-button ml-5 mr-5">Gem</button>
+            </div>
+            </div>
 
         </div>
 
     </form>
 </main>
-<footer>
-    <!--=================== Footer ============================ -->
-</footer>
 </body>
 <script src="/userClient/js/activity.js"></script>
 </html>
