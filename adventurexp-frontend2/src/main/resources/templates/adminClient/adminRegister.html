@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Opret Profil</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link href="/adminClient/adminRegister.css" type="text/css" rel="stylesheet">
+    <link href="/adminClient/css/adminRegister.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -12,7 +12,7 @@
 </header>
 <main class="container" align="">
     <!-- === CREATE PROFILE === -->
-    <form class="contact w-50" id="registerForm" action="" method="post">
+    <form class="contact w-50" id="adminRegisterForm" action="" method="post">
         <div class="valid" id="notFilled"></div>
 
         <h3 class="text-center">Opret Profil(admin)</h3>
@@ -57,7 +57,13 @@
         <!-- USER ROLE -->
         <div class="form-group ml-5 mr-5">
             <label for="role">Brugerrolle</label>
-            <div class="col-sm-12 "><select name="role" id="role" class="roleSelector form-control"><option>Vælg role</option></select></div>
+            <div class="col-sm-12 "><select name="role" id="role" class="roleSelector form-control">
+                <option>Vælg rolle</option>
+                <option value="ROLE_BOOKING">ROLE_BOOKING</option>
+                <option value="ROLE_EVENT">ROLE_EVENT</option>
+                <option value="ROLE_USER">ROLE_USER</option>
+            </select>
+            </div>
         </div>
 
         <!-- SUBMIT -->
@@ -70,5 +76,5 @@
     </form>
 </main>
 </body>
-<script ></script>
+<script src="/adminClient/js/adminRegister.js"></script>
 </html>
