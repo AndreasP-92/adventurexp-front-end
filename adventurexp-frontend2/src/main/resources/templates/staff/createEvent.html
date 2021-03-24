@@ -7,13 +7,10 @@
     <link href="/userClient/css/formStyle.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<header>
-    <!--=================== NAVIGATION ============================ -->
-    <div th:replace="fragments/navbar :: navigation">
-
-    </div>
-</header>
 <main class="container" align="">
+    <a href="/admin/admin/index" style="color:black;">
+        <i class='fas fa-arrow-left mt-5' style='font-size:36px'></i>
+    </a>
     <!-- === CREATE EVENT === -->
     <form class="contact w-50" action="/upload" method="post" id="activityForm" enctype="multipart/form-data">
         <div class="valid" id="notFilled"></div>
@@ -85,9 +82,6 @@
 
     </form>
 </main>
-<footer>
-    <!--=================== Footer ============================ -->
-</footer>
 </body>
 <script src="/userClient/js/activity.js"></script>
 </html>

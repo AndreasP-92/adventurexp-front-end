@@ -22,11 +22,6 @@ public class MainController {
     }
 //
 
-    @GetMapping("/createevent")
-    public String createEvent(){
-        return "/staff/createEvent";
-    }
-
     @GetMapping("/register")
     public String register(){return "/userClient/register";}
 
@@ -142,5 +137,10 @@ public class MainController {
     @GetMapping("/admin/asigned/ticket")
     public String adminAsignedTicket(){
         return "/adminClient/adminAsignedTicket";
+    }
+
+    @GetMapping("/admin/createevent")
+    public String createEvent(){
+        return "/staff/createEvent";
     }
 }
