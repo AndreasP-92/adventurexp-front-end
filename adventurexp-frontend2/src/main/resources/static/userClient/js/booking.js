@@ -1,6 +1,9 @@
 const thisForm = document.getElementById('bookingForm');
 const termsOfUse = document.getElementById('termsOfUse');
-const price  = document.getElementById('price');
+
+// ============== POST BOOKING ==============
+
+// ============== EVENT LISTENER ==============
 
 thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -41,6 +44,8 @@ function gotActivityData(data){
 
 }
 
+// ============== DROPDOWN MENU ==============
+
 function fillDropDown(item, index){
     const activitySelector = document.querySelector('.activiySelector')
 
@@ -50,6 +55,8 @@ function fillDropDown(item, index){
     el.value = item.name;
     activitySelector.appendChild(el);
 }
+
+// ============== SHOW PRICE ON BOOKING ==============
 
 function myPrice(chosen) {
     console.log(chosen)
@@ -68,7 +75,5 @@ function myPrice(chosen) {
             document.getElementById("activityPrice").innerHTML="<p> Prisen er:"+ data.price + "</p>"
             console.log(data)
         })
-    // /select/activity/{name}
-    // document.getElementById("showPrice").innerHTML = "You selected: " + x;
 }
 
