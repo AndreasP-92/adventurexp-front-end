@@ -52,7 +52,8 @@ async function insertUser(){
         body: JSON.stringify({
             'enabled'   : 1,
             'mail'      : mail.value,
-            'password'  : password.value
+            'password'  : password.value,
+            'role'      : 'ROLE_USER'
         }),
         headers: {
             'Content-type': 'application/json; charset=UTF-8'
