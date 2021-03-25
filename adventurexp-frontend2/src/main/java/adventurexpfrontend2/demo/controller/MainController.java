@@ -1,6 +1,7 @@
 package adventurexpfrontend2.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,54 +14,99 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.security.Principal;
 
 @Controller
 public class MainController {
     @GetMapping("/")
-    public String index(){
+    public String index(Model model, Principal principal){
+        if (principal != null){
+            System.out.println("username =========" + principal.getName());
+            model.addAttribute("User", principal.getName());
+        }
         return "/userClient/index";
     }
-//
+
 
     @GetMapping("/register")
-    public String register(){return "/userClient/register";}
+    public String register(Model model, Principal principal){
+        if (principal != null){
+            System.out.println("username =========" + principal.getName());
+            model.addAttribute("User", principal.getName());
+        }
+        return "/userClient/register";
+    }
 
     @GetMapping("/booking")
-    public String booking(){return "/userClient/booking";}
+    public String booking(Model model, Principal principal){
+        if (principal != null) {
+            System.out.println("username =========" + principal.getName());
+            model.addAttribute("User", principal.getName());
+        }
+        return "/userClient/booking";
+    }
 
     @GetMapping("/profile/about/{mail}")
-    public String profileAbout(){
+    public String profileAbout(Model model, Principal principal){
+        if (principal != null){
+            System.out.println("username =========" + principal.getName());
+            model.addAttribute("User", principal.getName());
+        }
         return "/userClient/profileAbout";
     }
 
     @GetMapping("/profile/history/{mail}")
-    public String profileHistory(){
+    public String profileHistory(Model model, Principal principal){
+        if (principal != null){
+            System.out.println("username =========" + principal.getName());
+            model.addAttribute("User", principal.getName());
+        }
         return"/userClient/profileHistory";
     }
 
 
     @GetMapping("/login")
-    public String login(){
+    public String login(Model model, Principal principal){
+        if (principal != null){
+            System.out.println("username =========" + principal.getName());
+            model.addAttribute("User", principal.getName());
+        }
         return "/userClient/login";
     }
 
     @GetMapping("/contact")
-    public String contact(){
+    public String contact(Model model, Principal principal){
+        if (principal != null){
+            System.out.println("username =========" + principal.getName());
+            model.addAttribute("User", principal.getName());
+        }
         return "/userClient/contact";
     }
 
     @GetMapping("/staff/booking/list")
-    public String bookingList(){
+    public String bookingList(Model model, Principal principal){
+        if (principal != null){
+            System.out.println("username =========" + principal.getName());
+            model.addAttribute("User", principal.getName());
+        }
         return "/staff/bookingListIndex";
     }
 
     @GetMapping("/activity/info/{name}")
-    public String activityInfo(){
+    public String activityInfo(Model model, Principal principal){
+        if (principal != null){
+            System.out.println("username =========" + principal.getName());
+            model.addAttribute("User", principal.getName());
+        }
         return "/userClient/activityInfo";
     }
 
     @GetMapping("/activity/calender")
-    public String activityAvailable(){
+    public String activityAvailable(Model model, Principal principal){
+        if (principal != null){
+            System.out.println("username =========" + principal.getName());
+            model.addAttribute("User", principal.getName());
+        }
         return "/userClient/activityAvailable";
     }
 

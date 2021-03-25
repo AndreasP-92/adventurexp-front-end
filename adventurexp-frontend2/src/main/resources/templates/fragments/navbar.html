@@ -26,7 +26,12 @@
             </li>
         </ul>
     </div>
-    <div class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">
-        <a href="/login" class="text-truncate text-white">login</a>
-    </div>
+
+        <div th:if="${User == null}" class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">
+            <a href="/login" class="text-truncate text-white">login</a>
+        </div>
+
+        <div th:if="${User != null}" class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">
+            <a href="/logout" class="text-truncate text-white">logout</a>
+        </div>
 </nav>
