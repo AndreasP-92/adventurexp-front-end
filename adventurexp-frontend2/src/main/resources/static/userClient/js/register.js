@@ -4,7 +4,6 @@ const password  = document.getElementById('password')
 const password2  = document.getElementById('confirm_password');
 const firstname = document.getElementById('firstname');
 const lastname  = document.getElementById('lastname');
-const phone     = document.getElementById('phone');
 
 //     === EVENT LISTENER ===
 
@@ -12,7 +11,6 @@ thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
 
     if(password2.value != password.value){
-        console.log("test")
         document.getElementById('passwordValid').innerHTML = "Password skal være ens!";
     }else if(password.value == password2.value){
 
