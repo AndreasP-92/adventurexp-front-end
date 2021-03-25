@@ -2,7 +2,7 @@
 thePath = window.location.pathname;
 const name = thePath.substring(thePath.lastIndexOf('/')+1)
 
-const myUrl = `http://localhost:5002/select/activity/${name}`;
+const activityUrl = `http://localhost:5002/select/activity/${name}`;
 
 const requestOptions = {
     'content-type': 'application/json',
@@ -11,16 +11,28 @@ const requestOptions = {
 };
 
 //======== FETCH ACTIVITY ========
-fetch(myUrl, requestOptions)
+fetch(activityUrl, requestOptions)
     .then(response => response.json())
     .then(data  => {
         fillActivityHeader(data)
         fillBreadParent(data)
-        fillDuration(data)
         fillPrice(data)
         fillPInfo(data)
         console.log(data)
     })
+
+//======== FETCH DURATIONS ========
+
+const durationUrl = `http://localhost:5002/select/all/durations/${name}`;
+
+fetch(durationUrl, requestOptions)
+    .then(response => response.json())
+    .then(data  => {
+        console.log(data)
+        // fillDuration(data[0])
+        data.forEach(fillDuration)
+    })
+
 //======== FILL ACTIVITY HEADER FUNCTION ========
 function fillActivityHeader(item) {
     console.log(item)
@@ -61,13 +73,13 @@ function fillDuration(item){
     p1.textContent = item.duration;
     duration1.appendChild(p1)
 
-    let p2 = document.createElement('p')
-    p2.textContent = item.duration;
-    duration1.appendChild(p2)
-
-    let p3 = document.createElement('p')
-    p3.textContent = item.duration;
-    duration1.appendChild(p3)
+    // let p2 = document.createElement('p')
+    // p2.textContent = item.duration;
+    // duration1.appendChild(p2)
+    //
+    // let p3 = document.createElement('p')
+    // p3.textContent = item.duration;
+    // duration1.appendChild(p3)
 }
 
 //======== FILL PRICE FUNCTION ========
