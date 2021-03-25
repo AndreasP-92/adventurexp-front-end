@@ -9,7 +9,7 @@
 <body>
 <header>
     <!--=================== NAVIGATION ============================ -->
-    <div th:replace="fragments/navbar :: navigation">
+    <div th:replace="fragments/navbar :: navigation" th:width="User=${User}">
 
     </div>
 
@@ -25,10 +25,11 @@
         <!-- === ACTIVITY + GUESTS === -->
         <div class="row mt-5">
             <div class="col-sm-6">
-                <select id="price" onchange="myPrice(this.options[this.selectedIndex].value)" name="activity" class="activiySelector form-control">
+                <select id="price" onchange="myPrice(this.options[this.selectedIndex].value)" name="activity" class="activitySelector form-control">
                     <option>Vælg en aktivitet</option>
                 </select>
                 <div id="activityPrice"></div>
+                <input id="insertActivityPrice" type="text" name="paid" hidden>
             </div>
             <div class="col-sm-6" align="center"><input class="form-control" id="GuestNumber" type="number" name="guests" required  placeholder="Antal Gæster"> </div>
         </div>
@@ -37,11 +38,8 @@
         <div class="row mt-5">
             <div class="col-sm-6" align="center"><input class="form-control" type="date" min="2021-03-01" max="2021-03-20" name="datetime" required placeholder="Dato"> </div>
             <div class="col-sm-6" align="center">
-                <select class="form-control" name="duration">
+                <select class="form-control" name="duration" id="durationSelector">
                     <option value="12:00">Vælg Varigheden</option>
-                    <option value="12:00">12 Timer</option>
-                    <option value="24:00">24 Timer</option>
-                    <option value="48:00">48 Timer</option>
                 </select>
             </div>
         </div>

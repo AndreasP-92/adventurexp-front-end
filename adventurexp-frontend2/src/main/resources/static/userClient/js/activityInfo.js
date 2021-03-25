@@ -29,7 +29,6 @@ fetch(durationUrl, requestOptions)
     .then(response => response.json())
     .then(data  => {
         console.log(data)
-        // fillDuration(data[0])
         data.forEach(fillDuration)
     })
 
@@ -65,21 +64,13 @@ function fillBreadParent(item){
 //======== FILL DURATION FUNCTION ========
 
 function fillDuration(item){
-    const duration1 = document.querySelector('.duration1')
+    const duration1 = document.querySelector('.duration')
 
 
     // === CREATE ptag ===
     let p1 = document.createElement('p')
-    p1.textContent = item.duration;
+    p1.textContent = item.duration + " - Timer";
     duration1.appendChild(p1)
-
-    // let p2 = document.createElement('p')
-    // p2.textContent = item.duration;
-    // duration1.appendChild(p2)
-    //
-    // let p3 = document.createElement('p')
-    // p3.textContent = item.duration;
-    // duration1.appendChild(p3)
 }
 
 //======== FILL PRICE FUNCTION ========
@@ -87,7 +78,7 @@ function fillPrice(item){
     const price = document.querySelector('.price')
 
     let p1 = document.createElement('p')
-    p1.textContent =item.price;
+    p1.textContent =item.price + " kr";
     price.appendChild(p1)
 
 }
