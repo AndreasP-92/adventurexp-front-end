@@ -6,11 +6,16 @@
     <title>activityInfo</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link href="/userClient/css/activityInfo.css" type="text/css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="/userClient/css/activityAvailable.css" type="text/css" rel="stylesheet">
+    <link href="/userClient/css/activityEvents.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <header>
     <!--=================== NAVIGATION ============================ -->
-    <div th:replace="fragments/navbar :: navigation">
+    <div th:replace="fragments/navbar :: navigation" th:width="User=${User}">
 
     </div>
 
@@ -20,7 +25,7 @@
 
     <div class="activity">
         <!-- ACTIVITY TITLE AND SUB-TITLE -->
-        <div class="col-sm-12 title">
+        <div class="col-sm-4 title">
             <div class="col-sm-12 activityHeader">
 
             </div>
@@ -57,9 +62,20 @@
             </div>
         </div>
     </div>
+    <div id="wrap">
+        <h1 class="text-white calenderHeader p-3 w-50" align="center">Dage som eventet er åbent</h1>
+
+        <div id='calendar'></div>
+
+        <div style='clear:both'></div>
+    </div>
+
+
 </main>
     <!--=================== Footer ============================ -->
     <div th:replace="fragments/footer :: footerFragment"></div>
 </body>
+<script src="/userClient/js/activityEvents.js"></script>
+<script src="/userClient/js/activityAvailable.js"></script>
 <script src="/userClient/js/activityInfo.js"></script>
 </html>

@@ -55,11 +55,11 @@ function fillTbody(item, index){
     th3.textContent = item.paid;
     tr.appendChild(th3);
 
-// // === CREATE TH ===
-//     let td = document.createElement('td');
-//     tr.appendChild(td)
-//
-//
+    // // === CREATE TH ===
+    //     let td = document.createElement('td');
+    //     tr.appendChild(td)
+    //
+    //
 // // === CREATE ATAG ===
 //     let a = document.createElement('a');
 //     a.className = "mt-3 w-75 btn btn-info"

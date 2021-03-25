@@ -22,32 +22,32 @@
             <!-- ACTIVITY NAME -->
             <div class="form-group ml-5 mr-5">
                 <label for="activity_name">Aktivitet navn</label>
-                <input class="form-control" type="text" id="activity_name" name="name" placeholder="Aktivitetes Navn" require>
+                <input class="form-control" type="text" id="activity_name" name="name" placeholder="Aktivitetes Navn" required>
                 <div class="mt-3" id="alreadyExists"></div>
             </div>
 
         <!-- ACTIVITY SUBHEADING -->
         <div class="form-group ml-5 mr-5">
             <label for="activity_subheading">Aktivitets under overskrift</label>
-            <input class="form-control" type="text" id="activity_subheading" name="subheading" require placeholder="Aktivitets under overskrift" >
+            <input class="form-control" type="text" id="activity_subheading" name="subheading" required placeholder="Aktivitets under overskrift" >
         </div>
 
         <!-- ACTIVITY PERIOD START -->
         <div class="form-group ml-5 mr-5">
             <label for="activity_avail_start">Aktivitetes Periode Start</label>
-            <input rows="3" class="form-control" type="date" id="activity_avail_start"  name="starts" placeholder="Aktivitets Periode Start" require>
+            <input rows="3" class="form-control" type="date" id="activity_avail_start"  name="starts" placeholder="Aktivitets Periode Start" required>
         </div>
 
         <!-- Activity Period End -->
         <div class="form-group ml-5 mr-5">
             <label for="activity_avail_end">Aktivitetes Periode Slut</label>
-            <input id="activity_avail_end" class="form-control" type="date" name="ends" require>
+            <input id="activity_avail_end" class="form-control" type="date" name="ends" required>
         </div>
 
             <!-- Activity DURATION -->
             <div class="form-group ml-5 mr-5">
                 <label for="duration">Aktivitetets Varighed</label>
-                <select id="duration" class="form-control" multiple require>
+                <select id="duration" class="form-control" multiple required>
                     <option value="1">1 Time</option>
                     <option value="2">2 Timer</option>
                     <option value="12">12 Timer</option>
@@ -59,31 +59,31 @@
             <!-- Minimum Age -->
             <div class="form-group ml-5 mr-5">
                 <label for="activity_min_age">Minimum Deltager Alder</label>
-                <input class="form-control" type="number" id="activity_min_age" name="age" require>
+                <input class="form-control" type="number" id="activity_min_age" name="age" required>
             </div>
 
         <!-- Activity Size -->
         <div class="form-group ml-5 mr-5">
             <label for="activity_group_size">Aktivitets Antal Deltagere</label>
-            <input class="form-control" id="activity_group_size" type="number" name="size" require>
+            <input class="form-control" id="activity_group_size" type="number" name="size" required>
         </div>
 
         <!-- Activity Price -->
         <div class="form-group ml-5 mr-5">
             <label for="activity_price">Aktivitets pris</label>
-            <input class="form-control" id="activity_price" type="number" name="price" require>
+            <input class="form-control" id="activity_price" type="number" name="price" required>
         </div>
 
         <!-- Activity Description -->
         <div class="form-group ml-5 mr-5">
             <label for="activity_desc">Aktivitetes Beskrivelse</label>
-            <textarea class="form-control" id="activity_desc" name="description" rows="3" require></textarea>
+            <textarea class="form-control" id="activity_desc" name="description" rows="3" required></textarea>
         </div>
 
         <!-- Activity PRACTICAL INFO -->
         <div class="form-group ml-5 mr-5">
             <label for="activity_practical_info">Aktivitetes praktisk information</label>
-            <textarea class="form-control" id="activity_practical_info" name="practicalinfo" rows="3" require></textarea>
+            <textarea class="form-control" id="activity_practical_info" name="practicalinfo" rows="3" required></textarea>
         </div>
 
 
@@ -92,7 +92,7 @@
             <label for="activity_pic">Indsæt billede</label>
 
             <!-- UPLOAD IMAGE -->
-            <input class="form-control-file" id="activity_pic" name="file" type="file" >
+            <input class="form-control-file" id="activity_pic" name="file" type="file" required>
         </div>
         <div class="row">
             <div class="col-md-6">

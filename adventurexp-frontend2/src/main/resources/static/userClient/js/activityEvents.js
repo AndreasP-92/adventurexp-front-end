@@ -38,7 +38,10 @@ $(document).ready(function() {
     /* fetch the dates
     -----------------------------------------------------------------*/
 
-    const myUrl = `http://localhost:5002/select/all/events/bowling`;
+    const thePath = window.location.pathname;
+    const name = thePath.substring(thePath.lastIndexOf('/')+1)
+
+    const myUrl = `http://localhost:5002/select/all/events/${name}`;
 
     let eventArray = []
 
@@ -57,8 +60,8 @@ $(document).ready(function() {
                 eventArray = data.map(dd => (
                     {
                         title : dd.name,
-                        start : new Date(2021, 1, 22),
-                        end: new Date(2021, 3, 22)
+                        start : new Date(2021, 1-1, 22),
+                        end: new Date(2021, 3-1, 22)
                     }
                 ))
 
@@ -72,16 +75,20 @@ $(document).ready(function() {
 
     async function fetched(){
         // console.log("EVENTS======3333",await fetchFunction())
-
+        // const dayButton = document.getElementsByClassName('fc-button-agendaDay').hidden = false;
+        // const weekButton = document.querySelector('.fc-button-agendaDay')
+        //
+        // dayButton.style.zIndex = "-5"
+        // dayButton.
         var calendar =  $('#calendar').fullCalendar({
             header: {
                 left: 'title',
                 center: 'agendaDay,agendaWeek,month',
                 right: 'prev,next today'
             },
-            editable: true,
+            editable: false,
             firstDay: 1, //  1(Monday) this can be changed to 0(Sunday) for the USA system
-            selectable: true,
+            selectable: false,
             defaultView: 'month',
 
             axisFormat: 'h:mm',

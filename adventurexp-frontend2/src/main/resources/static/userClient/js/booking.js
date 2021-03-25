@@ -1,6 +1,7 @@
 const thisForm = document.getElementById('bookingForm');
 const termsOfUse = document.getElementById('termsOfUse');
-const price  = document.getElementById('price');
+
+// ============== EVENT LISTENER ==============
 
 thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -21,6 +22,9 @@ thisForm.addEventListener('submit', async function (e) {
     }
 
 });
+
+// ============== GET ACTIVITY ==============
+
 const mail = "and@and";
 const myUrl = `http://localhost:5002/select/activities`;
 
@@ -38,11 +42,12 @@ fetch(myUrl, requestOptions)
 
 function gotActivityData(data){
     data.forEach(fillDropDown)
-
 }
 
+// ============== FILL DROPDOWN ==============
+
 function fillDropDown(item, index){
-    const activitySelector = document.querySelector('.activiySelector')
+    const activitySelector = document.querySelector('.activitySelector')
 
     let el = document.createElement("option");
     el.textContent = item.name;
@@ -51,9 +56,9 @@ function fillDropDown(item, index){
     activitySelector.appendChild(el);
 }
 
+// ============== GET PRICE ==============
+
 function myPrice(chosen) {
-    console.log(chosen)
-    const mail = "and@and";
     const activityUrl = `http://localhost:5002/select/activity/${chosen}`;
 
     const activityRequestOptions = {
@@ -66,9 +71,40 @@ function myPrice(chosen) {
         .then(response => response.json())
         .then(data => {
             document.getElementById("activityPrice").innerHTML="<p> Prisen er:"+ data.price + "</p>"
+            document.getElementById('insertActivityPrice').value = data.price
             console.log(data)
         })
-    // /select/activity/{name}
-    // document.getElementById("showPrice").innerHTML = "You selected: " + x;
+    getDurations(chosen)
+
 }
 
+// ============== FILL DROPDOWN DURATION ==============
+
+function getDurations(activity){
+    const durationUrl = `http://localhost:5002/select/all/durations/${activity}`
+
+    const requestOptions = {
+        'content-type': 'application/json',
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+    fetch(durationUrl, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            gotDurationData(data)
+        })
+
+    function gotDurationData(data){
+        data.forEach(fillDropDownDuration)
+    }
+}
+
+function fillDropDownDuration(item, index){
+    const durationSelector = document.getElementById('durationSelector')
+
+    let dur = document.createElement("option");
+    dur.textContent = item.duration;
+    dur.value = item.duration;
+    durationSelector.appendChild(dur);
+}
