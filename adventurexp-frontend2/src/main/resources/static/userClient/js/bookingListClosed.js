@@ -1,42 +1,67 @@
-const thisForm = document.getElementById('contactForm');
-const fornavn = document.getElementById('Fornavn');
-const efternavn = document.getElementById('Efternavn');
-const email = document.getElementById('E-mail');
-const beskrivelse = document.getElementById('Beskrivelse');
+//======== GET ALL BOOKING HISTORIES ========
 
-alert("test")
+thePath = window.location.pathname;
+const email = thePath.substring(thePath.lastIndexOf('/')+1)
 
 
-thisForm.addEventListener('submit', async function (e) {
-    e.preventDefault();
+const bookingUrl = `http://localhost:5002/select/closed/booking`;
 
-    const formData = new FormData(thisForm).entries()
+const requestOptions = {
+    'content-type': 'application/json',
+    method: 'GET',
+    redirect: 'follow'
+};
 
 
-    fetch('http://localhost:5002/insert/ticket', {
-        method: 'POST',
-        body: JSON.stringify({
-            'firstname'       : fornavn.value,
-            'lastname'        : efternavn.value,
-            'mail'            : email.value,
-            'context'         : beskrivelse.value,
-            'ticket_taken'    : 0,
-            'ticket_active'   : 1
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8'
-        }
-    }).then(function (response) {
-        if (response.ok) {
-            return response.json();
-        }
-        return Promise.reject(response);
-    }).then(function (data) {
-        // thisForm.submit();
+fetch(bookingUrl, requestOptions)
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(bookingListClosedTbody)
         console.log(data)
-    }).catch(function (error) {
-        console.warn('Something went wrong.', error);
+    })
 
+function gotActivityData(data) {
+    console.log('activities====', data)
+    const activitiesMap = data.map(dd => dd);
+    console.log('activitiesMap====', activitiesMap)
+    // activitiesMap.forEach(fillDropDown)
+}
 
-    });
-});
+// === FILL BOOKING LIST CLOSED TBODY ===
+function bookingListClosedTbody(item, index) {
+    const tbody = document.querySelector('.tbody')
+    console.log(item.activity);
+
+// === CREATE TR ===
+    let tr = document.createElement('tr');
+    tr.setAttribute('align', 'center');
+    tbody.appendChild(tr);
+
+// === CREATE TH ===
+    let th1 = document.createElement('th');
+    th1.textContent = item.firstname;
+    tr.appendChild(th1);
+
+// === CREATE TH ===
+    let th2 = document.createElement('th');
+    th2.textContent = item.activity;
+    tr.appendChild(th2);
+
+// === CREATE TD ===
+    let td = document.createElement('td');
+    td.textContent = item.datetime;
+    tr.appendChild(td);
+
+// === CREATE TD ===
+    let td2 = document.createElement('td');
+    td2.textContent = item.duration;
+    tr.appendChild(td2);
+
+    // === CREATE ATAG ===
+    let button = document.createElement('button');
+    button.className = "mt-3 w-75  btn btn-danger"
+    button.textContent = "Slet"
+    button.href = "/booking/history/"+item.id;
+    tr.appendChild(button);
+}
+
