@@ -1,7 +1,6 @@
 const thisForm = document.getElementById('bookingForm');
 const termsOfUse = document.getElementById('termsOfUse');
-
-// ============== POST BOOKING ==============
+const price  = document.getElementById('price');
 
 // ============== EVENT LISTENER ==============
 
@@ -24,6 +23,9 @@ thisForm.addEventListener('submit', async function (e) {
     }
 
 });
+
+// ============== GET ACTIVITY ==============
+
 const mail = "and@and";
 const myUrl = `http://localhost:5002/select/activities`;
 
@@ -44,7 +46,7 @@ function gotActivityData(data){
 
 }
 
-// ============== DROPDOWN MENU ==============
+// ============== FILL DROPDOWN ==============
 
 function fillDropDown(item, index){
     const activitySelector = document.querySelector('.activiySelector')
@@ -56,11 +58,9 @@ function fillDropDown(item, index){
     activitySelector.appendChild(el);
 }
 
-// ============== SHOW PRICE ON BOOKING ==============
+// ============== GET PRICE ==============
 
 function myPrice(chosen) {
-    console.log(chosen)
-    const mail = "and@and";
     const activityUrl = `http://localhost:5002/select/activity/${chosen}`;
 
     const activityRequestOptions = {
@@ -73,6 +73,7 @@ function myPrice(chosen) {
         .then(response => response.json())
         .then(data => {
             document.getElementById("activityPrice").innerHTML="<p> Prisen er:"+ data.price + "</p>"
+            document.getElementById('insertActivityPrice').value = data.price
             console.log(data)
         })
 }

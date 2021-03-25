@@ -4,8 +4,9 @@ const efternavn = document.getElementById('Efternavn');
 const email = document.getElementById('E-mail');
 const beskrivelse = document.getElementById('Beskrivelse');
 
-alert("test")
 
+
+// ============== EVENT LISTENER ==============
 
 thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -32,7 +33,6 @@ thisForm.addEventListener('submit', async function (e) {
         }
         return Promise.reject(response);
     }).then(function (data) {
-        // thisForm.submit();
         console.log(data)
     }).catch(function (error) {
         console.warn('Something went wrong.', error);
