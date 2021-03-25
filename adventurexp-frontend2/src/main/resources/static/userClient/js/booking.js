@@ -1,6 +1,5 @@
 const thisForm = document.getElementById('bookingForm');
 const termsOfUse = document.getElementById('termsOfUse');
-const price  = document.getElementById('price');
 
 // ============== EVENT LISTENER ==============
 
@@ -43,13 +42,12 @@ fetch(myUrl, requestOptions)
 
 function gotActivityData(data){
     data.forEach(fillDropDown)
-
 }
 
 // ============== FILL DROPDOWN ==============
 
 function fillDropDown(item, index){
-    const activitySelector = document.querySelector('.activiySelector')
+    const activitySelector = document.querySelector('.activitySelector')
 
     let el = document.createElement("option");
     el.textContent = item.name;
@@ -76,5 +74,37 @@ function myPrice(chosen) {
             document.getElementById('insertActivityPrice').value = data.price
             console.log(data)
         })
+    getDurations(chosen)
+
 }
 
+// ============== FILL DROPDOWN DURATION ==============
+
+function getDurations(activity){
+    const durationUrl = `http://localhost:5002/select/all/durations/${activity}`
+
+    const requestOptions = {
+        'content-type': 'application/json',
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+    fetch(durationUrl, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            gotDurationData(data)
+        })
+
+    function gotDurationData(data){
+        data.forEach(fillDropDownDuration)
+    }
+}
+
+function fillDropDownDuration(item, index){
+    const durationSelector = document.getElementById('durationSelector')
+
+    let dur = document.createElement("option");
+    dur.textContent = item.duration;
+    dur.value = item.duration;
+    durationSelector.appendChild(dur);
+}
