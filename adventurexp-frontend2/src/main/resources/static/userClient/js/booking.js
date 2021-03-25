@@ -30,7 +30,6 @@ const requestOptions = {
     redirect: 'follow'
 };
 
-
 fetch(myUrl, requestOptions)
     .then(response => response.json())
     .then(data => {
@@ -52,8 +51,24 @@ function fillDropDown(item, index){
     activitySelector.appendChild(el);
 }
 
-function myPrice() {
-    document.getElementById("myPrice").innerHTML=("Prisen er: <b style='color.red;'>"+thisForm.activity(thisForm.activity.selectedIndex).text+'</b>')
+function myPrice(chosen) {
+    console.log(chosen)
+    const mail = "and@and";
+    const activityUrl = `http://localhost:5002/select/activity/${chosen}`;
 
+    const activityRequestOptions = {
+        'content-type': 'application/json',
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+    fetch(activityUrl, activityRequestOptions)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("activityPrice").innerHTML="<p> Prisen er:"+ data.price + "</p>"
+            console.log(data)
+        })
+    // /select/activity/{name}
     // document.getElementById("showPrice").innerHTML = "You selected: " + x;
 }
+
