@@ -73,12 +73,21 @@ async function insertDuration(duration_time, ac_name){
 async function insertActivity(optionValues){
     const filename = activity_pic.files[0].name;
 
+    newStartDate = new Date(activity_avail_start.value);
+    newEndDate = new Date(activity_avail_end.value);
+    var newStartDate2 = newStartDate.getFullYear() + " " + newStartDate.getMonth() + " " + newStartDate.getDay();
+    var newEndDate2 = newEndDate.getFullYear() + " " + newEndDate.getMonth() + " " + newEndDate.getDay();
+
+    console.log('start ====', newStartDate2)
+    console.log('end ====', newEndDate2)
+
+
     fetch('http://localhost:5002/insert/activity', {
         method: 'POST',
         body: JSON.stringify({
             'name'          : activity_name.value,
-            'starts'        : activity_avail_start.value,
-            'ends'          : activity_avail_end.value,
+            'starts'        : newStartDate2,
+            'ends'          : newEndDate2,
             'age'           : activity_min_age.value,
             'size'          : activity_group_size.value,
             'description'   : activity_desc.value,
@@ -102,7 +111,7 @@ async function insertActivity(optionValues){
             console.log("OPTIONS====",optionValues[i])
             insertDuration(optionValues[i], data.name)
         }
-        // thisForm.submit();
+        window.location.href = "/"
     }).catch(function (error) {
         console.warn('Something went wrong.', error);
     });

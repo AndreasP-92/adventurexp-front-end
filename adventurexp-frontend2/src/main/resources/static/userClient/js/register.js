@@ -15,9 +15,32 @@ thisForm.addEventListener('submit', async function (e) {
         console.log("test")
         document.getElementById('passwordValid').innerHTML = "Password skal være ens!";
     }else if(password.value == password2.value){
-        await insertUser();
-        await insertAuth();
-        window.location.href = "/login"
+
+        const myUrl = `http://localhost:5002/select/user/${mail.value}`;
+
+        const requestOptions = {
+            'content-type': 'application/json',
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+
+        fetch(myUrl, requestOptions)
+            .then(response => response.json())
+
+            .then(data => {
+                console.log(data)
+                console.log("findes allerede")
+                document.getElementById('alreadyExists').innerHTML = "Bruger Eksistere allerede";
+
+
+            }).catch(async function(){
+            console.log("Findes ikke")
+            await insertUser();
+            await insertAuth();
+            window.location.href = "/login"
+        })
+
     }
 });
 
