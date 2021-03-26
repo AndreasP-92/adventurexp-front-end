@@ -20,15 +20,19 @@
     </a>
 
     <div style="margin: 0px;" class="row">
+
+        <!--  ==== SUBMIT  ==== -->
         <div class="col-lg-2 form-group">
-            <input class="form-control" type="text" id="Søg Efter Navn" name="Søg Efter Navn"  placeholder="Søg Efter Navn">
+            <input class="form-control" type="text" id="searchMail"  placeholder="Søg Efter Navn">
         </div>
+
+        <!--  ==== CHOOSE ACTIVITIES  ==== -->
         <div class="col-lg-2 form-group">
-            <select class="form-control" name="duration">
-                <option value="12:00">Vælg Aktivitet</option>
-                <option value="PaintBall">PaintBall</option>
-                <option value="Bowling">Bowling</option>
-                <option value="Black Death">Black Death</option>
+            <select class="form-control"  id="chooseActivity" name="duration">
+                <option value="0">Vælg Aktivitet</option>
+<!--                <option value="PaintBall">PaintBall</option>-->
+<!--                <option value="Bowling">Bowling</option>-->
+<!--                <option value="Black Death">Black Death</option>-->
             </select>
         </div>
         <!--  ==== SUBMIT  ==== -->
@@ -37,8 +41,9 @@
         </div>
 
         <!-- === SUBMIT === -->
-        <div class="col-lg-4 form-group">
-            <button onClick="searchFunction()" class="w-100 btn btn-secondary float-right ">Se Alle Lukkede profiler</button>
+        <div class="col-lg-6 form-group">
+            <a href="/admin/bookings" class="ml-1 col-sm-5 btn btn-secondary float-right ">Nulstil Søgning</a>
+            <a href="/admin/bookings/closed" class="col-sm-6 btn btn-secondary float-right ">Se Alle Lukkede Bookings</a>
         </div>
         <p id="demo"></p>
     </div>
@@ -60,16 +65,18 @@
                 <a href="#">
                     <tr align="center">
                         <th scope="col ">Navn</th>
+                        <th scope="col ">Efternavn</th>
+                        <th scope="col ">Mail</th>
                         <th scope="col">Aktivitet</th>
-                        <th scope="col">Dato og Tidspunkt</th>
-                        <th scope="col">Varighed</th>
+                        <th scope="col">Dato</th>
+                        <th scope="col">Gæster</th>
                         <th scope="col">Handling</th>
 
                     </tr>
                 </a>
                 </thead>
 
-<!--                &lt;!&ndash; === NEWS LIST === &ndash;&gt;-->
+                <!-- === NEWS LIST === -->
                 <tbody class="tbody">
 <!--                <tr align="center">-->
 <!--                    <th >Lars</th>-->
@@ -90,13 +97,15 @@
 <!--                        &lt;!&ndash; ACTIONS &ndash;&gt;-->
 <!--                        <a class="mt-3 w-75  btn btn-danger">Luk Booking</a>-->
 <!--                    </td>-->
-<!--                </tr>-->
+                </tr>
 
                 </tbody>
             </table>
+    <h3 align="center" id="notFound"></h3>
 
 
-        </div>
+
+    </div>
 
 </main>
 <footer>
