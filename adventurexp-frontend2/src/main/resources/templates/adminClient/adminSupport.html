@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<html xmlns:th ="http://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="UTF-8">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+    <link href="/adminClient/css/adminLookUpProfiles.css" type="text/css" rel="stylesheet">
 
     <title>Admin Support</title>
 </head>
@@ -37,8 +36,7 @@
                 <th scope="col">Ticket Nummer</th>
                 <th scope="col">Navn</th>
                 <th scope="col">Beskrivelse</th>
-                <th scope="col">Emne</th>
-                <th scope="col">Dato Og Tidspunkt</th>
+                <th scope="col">Tidspunkt</th>
                 <th scope="col">Handling</th>
 
             </tr>
@@ -46,15 +44,14 @@
         </thead>
 
         <!-- === ALL TICKETS FOR EACH === -->
-        <tbody>
-        <tr style="cursor: help;"class="mt-5">
-            <th>Mail</th>
-            <td>Ticket Number</td>
-            <td>Navn</td>
-            <td>Context</td>
-            <td>Topic</td>
-            <td>Date</td>
-            <td>
+        <tbody class="tbody">
+<!--        <tr style="cursor: help;"class="mt-5">-->
+<!--            <th>Mail</th>-->
+<!--            <td>Ticket Number</td>-->
+<!--            <td>Navn</td>-->
+<!--            <td>Context</td>-->
+<!--            <td>Date</td>-->
+<!--            <td>-->
 
                 <!-- === ACTION BUTTONS === -->
                 <form method="post">
@@ -62,7 +59,7 @@
                     <input style="display: none" name="ticket_timestamp" type="text">
                     <input style="display: none" name="ticket_ownerMail" type="text">
                     <input style="display: none" name="ticket_id" type="text">
-                    <button type="submit" class="btn btn-info">Start Ticket</button>
+<!--                    <button type="submit" class="btn btn-info">Start Ticket</button>-->
                 </form>
             </td>
         </tr>
@@ -70,4 +67,5 @@
     </table>
 </main>
 </body>
+<script src="/adminClient/js/adminSupport.js"></script>
 </html>

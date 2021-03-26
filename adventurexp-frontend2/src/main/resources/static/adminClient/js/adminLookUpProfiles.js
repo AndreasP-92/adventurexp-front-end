@@ -12,7 +12,6 @@ function searchFunction() {
 
     if(!searchMail.value){
         fetch(`http://localhost:5002/search/auth/${chooseRole.value}`)
-            // fetch(`http://localhost:5002/search/user/and@and/ROLE_ADMIN`)
             .then(resp => resp.json())
             .then(data =>{
                 console.log(data)
@@ -29,7 +28,6 @@ function searchFunction() {
         })
     }else{
         fetch(`http://localhost:5002/search/user/${searchMail.value}/${chooseRole.value}`)
-            // fetch(`http://localhost:5002/search/user/and@and/ROLE_ADMIN`)
             .then(resp => resp.json())
             .then(data =>{
                 console.log(data)
@@ -45,12 +43,6 @@ function searchFunction() {
             console.log("Ingen mail modtaget")
         })
     }
-
-
-
-    // console.log("test")
-
-
 }
 
 function deleteProfile(id){
@@ -113,6 +105,9 @@ function fillTbody(item, index) {
     button.addEventListener('click',function(e){
         deleteProfile(item.id)
     })
+    a.textContent = "Luk Profil"
+    a.href = "/booking/history/"+item.id;
+    td.appendChild(a);
     button.textContent = "Luk Profil"
     td.appendChild(button);
 
