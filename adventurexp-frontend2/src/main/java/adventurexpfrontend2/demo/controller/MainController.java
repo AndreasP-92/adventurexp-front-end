@@ -148,7 +148,7 @@ public class MainController {
     }
 
     @GetMapping("/admin/register")
-    public String adminRegister(){return "/adminClient/adminRegister"; }
+    public String adminRegister(){return "/adminClient/adminRegister";}
 
     @GetMapping("/admin/index")
     public String adminIndex(){

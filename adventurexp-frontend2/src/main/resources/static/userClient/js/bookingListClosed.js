@@ -154,19 +154,19 @@ function fillTbody(item, index) {
         tr.appendChild(th1);
 
 // === CREATE TH ===
-        let th3 = document.createElement('th');
-        th3.textContent = item.lastname;
-        tr.appendChild(th3);
+        let th2 = document.createElement('th');
+        th2.textContent = item.lastname;
+        tr.appendChild(th2);
 
 // === CREATE TH ===
-        let th4 = document.createElement('th');
-        th4.textContent = item.mail;
-        tr.appendChild(th4);
+        let th3 = document.createElement('th');
+        th3.textContent = item.mail;
+        tr.appendChild(th3);
 
     // === CREATE TH ===
-        let th2 = document.createElement('th');
-        th2.textContent = item.activity;
-        tr.appendChild(th2);
+        let th4 = document.createElement('th');
+        th4.textContent = item.activity;
+        tr.appendChild(th4);
 
     // === CREATE TD ===
         let td = document.createElement('td');
