@@ -3,31 +3,50 @@ const searchMail    = document.getElementById('searchMail');
 const chooseRole    = document.getElementById('chooseRole');
 const notFound      = document.getElementById('notFound');
 const deleteButton  = document.getElementById('deleteButton')
-// alert("test")
 
-let userArray = []
-// fetch(`http://localhost:5002/search/user/${searchMail}`)
-// fetch(`http://localhost:5002/search/auth/${chooseRole}`)
-
+function reset(){
+    window.location.href = "/admin/profiles"
+}
 
 function searchFunction() {
 
-    // fetch(`http://localhost:5002/search/user/${searchMail.value}/${chooseRole.value}`)
-    fetch(`http://localhost:5002/search/user/and@and/ROLE_ADMIN`)
+    if(!searchMail.value){
+        fetch(`http://localhost:5002/search/auth/${chooseRole.value}`)
+            // fetch(`http://localhost:5002/search/user/and@and/ROLE_ADMIN`)
             .then(resp => resp.json())
-        .then(data =>{
-            console.log(data)
-            data.forEach(fillTbody)
-            notFound.innerText = "";
-            if(data.length == 0){
-                console.log("ikke fundet")
-                notFound.innerText = "Ingen profiler fundet"
-            }
+            .then(data =>{
+                console.log(data)
+                data.forEach(fillTbody)
+                notFound.innerText = "";
+                if(data.length == 0){
+                    console.log("ikke fundet")
+                    notFound.innerText = "Ingen profiler fundet"
+                }
 
-        }).catch(function(){
+            }).catch(function(){
             notFound.innerText = "Venligst søg efter en Profil og Rolle"
             console.log("Ingen mail modtaget")
-    })
+        })
+    }else{
+        fetch(`http://localhost:5002/search/user/${searchMail.value}/${chooseRole.value}`)
+            // fetch(`http://localhost:5002/search/user/and@and/ROLE_ADMIN`)
+            .then(resp => resp.json())
+            .then(data =>{
+                console.log(data)
+                data.forEach(fillTbody)
+                notFound.innerText = "";
+                if(data.length == 0){
+                    console.log("ikke fundet")
+                    notFound.innerText = "Ingen profiler fundet"
+                }
+
+            }).catch(function(){
+            notFound.innerText = "Venligst søg efter en Profil og Rolle"
+            console.log("Ingen mail modtaget")
+        })
+    }
+
+
 
     // console.log("test")
 
@@ -39,17 +58,18 @@ function deleteProfile(id){
 
         const requestOptions = {
             'content-type': 'application/json',
-            method: 'DELETE',
+            method: 'POST',
             redirect: 'follow'
         };
         const url = `http://localhost:5002/delete/profile/${id}`
         console.log(id)
-        fetch("http://localhost:5002/delete/profile/1",requestOptions)
+        fetch(url,requestOptions)
             .then(resp => resp.json())
             .then(console.log)
             .catch(function(e){
                 console.log(e)
             })
+        window.location.href = "/admin/profiles"
     }
 }
 
