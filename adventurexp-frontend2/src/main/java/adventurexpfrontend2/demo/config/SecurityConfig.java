@@ -30,14 +30,16 @@ import java.util.Map;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+// ====== JPA VERSION ========
 //    @Autowired
 //    UserDetailsService userDetailsService;
 
-
+// ====== JDBC VERSION ========
     @Autowired
     DataSource dataSource;
 
 
+// ====== JDBC VERSION ========
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
@@ -52,6 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
+// ====== JPA VERSION ========
 
 //    @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
@@ -62,27 +65,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.csrf().disable().authorizeRequests()
-                .antMatchers("/admin").hasRole("ADMIN")
-                .antMatchers("/user").hasAnyRole("ADMIN", "USER")
-//                .antMatchers("/admin/bookings/closed").hasAnyRole("ADMIN", "BOOKING")
-//                .antMatchers("/admin/register").hasAnyRole("ADMIN")
-//                .antMatchers("/admin/index").hasAnyRole("ADMIN")
-//                .antMatchers("/admin/profiles").hasAnyRole("ADMIN")
-//                .antMatchers("/admin/bookings").hasAnyRole("ADMIN","BOOKING", "User")
-//                .antMatchers("/admin/activities").hasAnyRole("ADMIN")
-//                .antMatchers("/admin/support").hasAnyRole("ADMIN")
-//                .antMatchers("/admin/asigned/ticket").hasAnyRole("ADMIN")
-//                .antMatchers("/admin/createevent").hasAnyRole("ADMIN", "EVENT")
-//                .antMatchers("/staff/booking/list").hasAnyRole("ADMIN", "BOOKING", "EVENT")
-//                .antMatchers("/booking").hasAnyRole("USER")
-//                .antMatchers("/profile/about/{mail}").hasAnyRole("USER")
-//                .antMatchers("/profile/history{mail}").hasAnyRole("USER")
-//                .antMatchers("/").permitAll()
-//                .antMatchers("/register").permitAll()
-//                .antMatchers("/login").permitAll()
-//                .antMatchers("/contact").permitAll()
-//                .antMatchers("/activity/info/{name}").permitAll()
-//                .antMatchers("/activity/calender").permitAll()
+                .antMatchers("/admin/*").hasAnyRole("ADMIN", "BOOKING", "EVENT")
+                .antMatchers("/admin/bookings/closed").hasAnyRole("ADMIN", "BOOKING")
+                .antMatchers("/admin/register").hasAnyRole("ADMIN")
+                .antMatchers("/admin/profiles").hasAnyRole("ADMIN")
+                .antMatchers("/admin/bookings").hasAnyRole("ADMIN","BOOKING")
+                .antMatchers("/admin/activities").hasAnyRole("ADMIN")
+                .antMatchers("/admin/support").hasAnyRole("ADMIN")
+                .antMatchers("/admin/asigned/ticket").hasAnyRole("ADMIN")
+                .antMatchers("/admin/createevent").hasAnyRole("ADMIN", "EVENT")
+                .antMatchers("/admin/bookings").hasAnyRole("ADMIN", "BOOKING")
+                .antMatchers("/profile/about/{mail}").hasAnyRole("USER")
+                .antMatchers("/profile/history{mail}").hasAnyRole("USER")
+                .antMatchers("/").permitAll()
+                .antMatchers("/register").permitAll()
+                .antMatchers("/login").permitAll()
+                .antMatchers("/contact").permitAll()
+                .antMatchers("/activity/info/{name}").permitAll()
                 .and().formLogin()
                 .defaultSuccessUrl("/",true)
                 .loginPage("/login")
@@ -105,138 +104,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/logout");
     }
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception{
-//        http.csrf().disable().authorizeRequests()
-//                .antMatchers("/admin").hasRole("ADMIN")
-//                .antMatchers("/createevent").hasRole("ADMIN")
-//                .antMatchers("/user").hasAnyRole("ADMIN", "USER")
-//                .antMatchers("/").permitAll()
-//                .and().formLogin()
-//                .permitAll()
-//                .loginPage("/login")
-//                .loginProcessingUrl("/doLogin")
-//                .defaultSuccessUrl("/booking")
-//                .failureUrl("/")
-//
-//        //                    .successForwardUrl("/login_success_handler")
-////                    .failureForwardUrl("/login_failure_handler")
-//                    .successHandler(new AuthenticationSuccessHandler() {
-//            @Override
-//            public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
-//                String name = authentication.getName();
-//                System.out.println("Logged in user: " + name);
-//
-//            }
-//        })
-//                .failureHandler(new AuthenticationFailureHandler() {
-//                    @Override
-//                    public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
-//
-//                        httpServletResponse.setStatus(HttpStatus.UNAUTHORIZED.value());
-//                        Map<String, Object> data = new HashMap<>();
-//                        data.put(
-//                                "timestamp",
-//                                Calendar.getInstance().getTime());
-//                        data.put(
-//                                "exception",
-//                                e.getMessage());
-//
-//                        httpServletResponse.getOutputStream()
-//                                .println(objectMapper.writeValueAsString(data));
-//
-//                        System.out.println(e);
-//
-//                        System.out.println("Login Failure!!!....");
-//
-//                        httpServletResponse.sendRedirect("/");
-//                    }
-//                })
-//                .and().exceptionHandling().accessDeniedPage("/403");
-//
-//
-//
-//    }
-
     @Bean
     public PasswordEncoder getPasswordEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
 }
-
-
-
-
-
-
-
-
-
-//    @Autowired
-//    DataSource dataSource;
-//
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication()
-//                .dataSource(dataSource)
-//                .usersByUsernameQuery("SELECT user_mail, user_password, user_enabled "
-//                        + "FROM app_user "
-//                        + "WHERE user_mail = ?")
-//                .authoritiesByUsernameQuery("SELECT usermail, authority "
-//                        + "FROM authorities "
-//                        + "WHERE usermail = ?");
-//    }
-//
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http
-//                .authorizeRequests()
-//                .antMatchers("/").permitAll();
-//    }
-//
-////    @Bean
-////    public PasswordEncoder getPasswordEncoder() {
-////        return NoOpPasswordEncoder.getInstance();
-////    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-//import org.springframework.security.core.userdetails.UserDetails;
-//import org.springframework.security.core.userdetails.UserDetailsService;
-//
-//
-//public class SecurityConfig extends WebSecurityConfigurerAdapter {
-//
-//        @Autowired
-//        UserDetailsService userDetailsService;
-//
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-//    auth.userDetailsService(userDetailsService)
-//    }
-//
-//    protected void configure(HttpSecurity http) throws Exception{
-//        http.authorizeRequests()
-//                .antMatchers("/admin").hasRole("ADMIN")
-//                .antMatchers("/user").hasAnyRole("ADMIN", "USER")
-//                .antMatchers("/").permitAll()
-//                .and().formLogin();
-//    }
-
-//}
