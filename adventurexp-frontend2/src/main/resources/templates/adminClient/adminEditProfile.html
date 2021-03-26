@@ -17,9 +17,10 @@
     </a>
     <!-- === CREATE PROFILE === -->
     <form class="contact w-50" id="adminRegisterForm" action="" method="post">
+        <input class="form-control mail"  type="text" hidden id="id" name="id" placeholder="Ny E-Mail adresse">
         <div class="valid" id="notFilled"></div>
 
-        <h3 class="text-center">Opret Profil(admin)</h3>
+        <h3 class="text-center">Rediger Profil(admin)</h3>
 
         <!-- USER EMAIL -->
         <div class="form-group ml-5 mr-5">
@@ -54,8 +55,8 @@
 
         <!-- USER PHONE -->
         <div class="form-group ml-5 mr-5">
-            <label for="telefon">Telefon</label>
-            <input class="form-control" type="text" id="telefon" required name="phone" placeholder="Telefon">
+            <label for="phone">Telefon</label>
+            <input class="form-control" type="text" id="phone" required name="phone" placeholder="Telefon">
         </div>
 
         <!-- USER ROLE -->
@@ -80,5 +81,5 @@
     </form>
 </main>
 </body>
-<script src="/adminClient/js/adminRegister.js"></script>
+<script src="/adminClient/js/adminEditProfile.js"></script>
 </html>
