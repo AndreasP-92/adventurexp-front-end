@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lav et Event</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="/userClient/css/formStyle.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<main class="container" align="">
+    <a href="/admin/activities" style="color:black;">
+        <i class='fas fa-arrow-left mt-5' style='font-size:36px'></i>
+    </a>
+    <!-- === CREATE EVENT === -->
+    <form class="contact w-50" action="/upload" method="post" id="activityForm" enctype="multipart/form-data">
+        <div class="valid" id="notFilled"></div>
+
+        <h3 class="text-center">Rediger et Event</h3>
+        <!-- ACTIVITY NAME -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_name">Aktivitet navn</label>
+            <input class="form-control" type="text" id="activity_name" name="name" placeholder="Aktivitetes Navn" required>
+            <div class="mt-3" id="alreadyExists"></div>
+        </div>
+
+        <!-- ACTIVITY SUBHEADING -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_subheading">Aktivitets under overskrift</label>
+            <input class="form-control" type="text" id="activity_subheading" name="subheading" required placeholder="Aktivitets under overskrift" >
+        </div>
+
+        <!-- ACTIVITY PERIOD START -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_avail_start">Aktivitetes Periode Start</label>
+            <input rows="3" class="form-control" type="date" id="activity_avail_start"  name="starts" placeholder="Aktivitets Periode Start" required>
+        </div>
+
+        <!-- Activity Period End -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_avail_end">Aktivitetes Periode Slut</label>
+            <input id="activity_avail_end" class="form-control" type="date" name="ends" required>
+        </div>
+
+        <!-- Activity DURATION -->
+        <div class="form-group ml-5 mr-5">
+            <label for="duration">Aktivitetets Varighed</label>
+            <select id="duration" class="form-control" multiple required>
+                <option value="1">1 Time</option>
+                <option value="2">2 Timer</option>
+                <option value="12">12 Timer</option>
+                <option value="24">24 Timer</option>
+                <option value="48">48 Timer</option>
+            </select>
+        </div>
+
+        <!-- Minimum Age -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_min_age">Minimum Deltager Alder</label>
+            <input class="form-control" type="number" id="activity_min_age" name="age" required>
+        </div>
+
+        <!-- Activity Size -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_group_size">Aktivitets Antal Deltagere</label>
+            <input class="form-control" id="activity_group_size" type="number" name="size" required>
+        </div>
+
+        <!-- Activity Price -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_price">Aktivitets pris</label>
+            <input class="form-control" id="activity_price" type="number" name="price" required>
+        </div>
+
+        <!-- Activity Description -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_desc">Aktivitetes Beskrivelse</label>
+            <textarea class="form-control" id="activity_desc" name="description" rows="3" required></textarea>
+        </div>
+
+        <!-- Activity PRACTICAL INFO -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_practical_info">Aktivitetes praktisk information</label>
+            <textarea class="form-control" id="activity_practical_info" name="practicalinfo" rows="3" required></textarea>
+        </div>
+
+
+        <!-- Activity Picture -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activity_pic">Indsæt billede</label>
+
+            <!-- UPLOAD IMAGE -->
+            <input class="form-control-file" id="activity_pic" name="file" type="file" required>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Cancel Creation -->
+
+                <a href="/" class="w-50 btn form-button ml-5 mr-5" >Anuller</a>
+            </div>
+            <div class="col-md-6 pl-5">
+                <!-- SUBMIT -->
+                <button type="submit" class="w-50 btn form-button ml-5 mr-5">Gem</button>
+            </div>
+        </div>
+
+        </div>
+
+    </form>
+</main>
+</body>
+<script src="/adminClient/js/adminEditEvent.js"></script>
+</html>

@@ -189,4 +189,9 @@ public class MainController {
     public String editProfile(){
         return "/adminClient/adminEditProfile";
     }
+
+    @GetMapping("/admin/edit/event/{name}")
+    public String editEvent(){
+        return "/adminClient/editEvent";
+    }
 }
