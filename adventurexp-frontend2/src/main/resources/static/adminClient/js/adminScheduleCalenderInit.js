@@ -41,7 +41,7 @@ $(document).ready(function() {
     const thePath = window.location.pathname;
     const name = thePath.substring(thePath.lastIndexOf('/')+1)
 
-    const myUrl = `http://localhost:5002/select/all/events/${name}`;
+    const myUrl = `http://localhost:5002/select/all/schedules`;
 
     let eventArray = []
 
@@ -59,13 +59,13 @@ $(document).ready(function() {
 
                 eventArray = data.map(dd => (
                     {
-                        title : dd.name,
+                        title : dd.mail,
                         start : new Date(dd.starts),
                         end: new Date(dd.ends)
                     }
                 ))
 
-            console.log("EVENTS======11111",eventArray);
+                console.log("EVENTS======11111",eventArray);
             });
         // console.log("EVENTS======22222",eventArray);
 
@@ -146,13 +146,14 @@ $(document).ready(function() {
             },
 
             events: await fetchFunction()
-            // [
-            //     {
-            //         title : "Bowling",
-            //         start : new Date(2021, 1,22),
-            //         end   : new Date(2021, 3,22),
-            //     }
-            // ]
+           // events :
+           //  [
+           //      {
+           //          title : "Bowling",
+           //          start : new Date(2021, 1,22),
+           //          end   : new Date(2021, 3,22),
+           //      }
+           //  ]
             //     [
             //     {
             //         title: 'Paint Ball Event',

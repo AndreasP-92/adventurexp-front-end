@@ -92,19 +92,29 @@ function fillTbody(item, index) {
     th2.textContent = item.role;
     tr.appendChild(th2);
 
-    // === CREATE TD ===
+// === CREATE TD ===
+    let td2 = document.createElement('td');
+    tr.appendChild(td2)
+
+// === CREATE ATAG ===
+    let a = document.createElement('a');
+    a.className = "mt-3 w-75 btn btn-danger"
+    a.textContent = "Rediger Profil"
+    a.href = "/admin/edit/profile/"+item.id;
+    td2.appendChild(a);
+
+// === CREATE TD ===
     let td = document.createElement('td');
     tr.appendChild(td)
 
-// === CREATE ATAG ===
-    let a = document.createElement('button');
-    a.className = "mt-3 w-75 btn btn-danger"
-    a.addEventListener('click',function(e){
+// === CREATE BUTTON ===
+    let button = document.createElement('button');
+    button.className = "mt-3 w-75 btn btn-danger"
+    button.addEventListener('click',function(e){
         deleteProfile(item.id)
     })
-    // a.setAttribute("onclick", `deleteProfile(${item.mail})`)
-    // a.onclick = deleteProfile(item.mail)
-    a.textContent = "Luk Profil"
-    a.href = "/booking/history/"+item.id;
-    td.appendChild(a);
+    button.textContent = "Luk Profil"
+    td.appendChild(button);
+
+
 }

@@ -1,5 +1,6 @@
 
-
+const profileHist   = document.getElementById('profileHist');
+const profileAbout  = document.getElementById('profileAbout');
 
 //======== GET ALL BOOKING HISTORIES ========
 
@@ -20,6 +21,8 @@ const requestOptions = {
 fetch(myUrl, requestOptions)
     .then(response => response.json())
     .then(data => {
+        profileAbout.href = "/profile/about/" + data[0].mail;
+        profileHist.href = "/profile/history/" + data[0].mail;
         data.forEach(fillTbody)
         console.log(data)
     })

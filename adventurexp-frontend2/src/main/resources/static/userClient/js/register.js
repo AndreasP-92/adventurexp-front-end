@@ -45,28 +45,28 @@ thisForm.addEventListener('submit', async function (e) {
 //     === INSERT USER ===
 
 async function insertUser(){
-    await fetch('http://localhost:5002/insert/user',{
-        method: 'POST',
-        body: JSON.stringify({
-            'enabled'   : 1,
-            'mail'      : mail.value,
-            'password'  : password.value,
-            'role'      : 'ROLE_USER'
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8'
-        }
-    }).then(function (response) {
-        if (response.ok) {
-            return response.json();
-        }
-        return Promise.reject(response);
-    }).then(function (data) {
-        // thisForm.submit();
-        console.log(data)
-    }).catch(function (error) {
-        console.warn('Something went wrong.', error);
-    })
+        await fetch('http://localhost:5002/insert/user',{
+            method: 'POST',
+            body: JSON.stringify({
+                'enabled'   : 1,
+                'mail'      : mail.value,
+                'password'  : password.value,
+                'role'      : 'ROLE_USER'
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+        }).then(function (response) {
+            if (response.ok) {
+                return response.json();
+            }
+            return Promise.reject(response);
+        }).then(function (data) {
+            // thisForm.submit();
+            console.log(data)
+        }).catch(function (error) {
+            console.warn('Something went wrong.', error);
+        })
 }
 //     === INSERT AUTH ===
 

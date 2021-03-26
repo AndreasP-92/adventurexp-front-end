@@ -1,8 +1,8 @@
 const thisForm = document.getElementById('activityForm');
 const activity_name = document.getElementById('activity_name');
 const activity_pic = document.getElementById('activity_pic');
-const activity_avail_start = document.getElementById('activity_avail_start');
-const activity_avail_end = document.getElementById('activity_avail_end');
+const activity_avail_start = document.getElementById('activity_avail_end');
+const activity_avail_end = document.getElementById('activity_avail_start');
 const activity_min_age = document.getElementById('activity_min_age');
 const activity_group_size = document.getElementById('activity_group_size');
 const activity_desc = document.getElementById('activity_desc');
@@ -75,8 +75,19 @@ async function insertActivity(optionValues){
 
     newStartDate = new Date(activity_avail_start.value);
     newEndDate = new Date(activity_avail_end.value);
-    var newStartDate2 = newStartDate.getFullYear() + " " + newStartDate.getMonth() + " " + newStartDate.getDay();
-    var newEndDate2 = newEndDate.getFullYear() + " " + newEndDate.getMonth() + " " + newEndDate.getDay();
+
+    newStartDateYear = newStartDate.getMonth() +1
+    newEndDateYear = newEndDate.getMonth() +1
+
+    newStartDateMonth = newStartDate.getDay()+2;
+    newEndDateMonth = newEndDate.getDay()+1;
+
+    let newStartDate2 = newStartDate.getFullYear() + " " + newStartDateYear + " " + newStartDateMonth;
+    let newEndDate2 = newEndDate.getFullYear() + " " + newEndDateYear + " " + newEndDateMonth;
+
+    console.log(newStartDate2)
+    console.log(newEndDate2)
+    // alert("test")
 
     console.log('start ====', newStartDate2)
     console.log('end ====', newEndDate2)
@@ -102,11 +113,12 @@ async function insertActivity(optionValues){
     }).then(function (response) {
         if (response.ok) {
             return response.json();
+            console.log(response)
         }
         return Promise.reject(response);
     }).then(function (data) {
         console.log("AFTER INSERT=========",data.name)
-
+        console.log(data)
         for(let i = 0; optionValues.length > i; i++){
             console.log("OPTIONS====",optionValues[i])
             insertDuration(optionValues[i], data.name)

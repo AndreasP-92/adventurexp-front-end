@@ -31,7 +31,59 @@
             <a href="/login" class="text-truncate text-white">login</a>
         </div>
 
-        <div th:if="${User != null}" class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">
-            <a href="/logout" class="text-truncate text-white">logout</a>
+        <div th:if="${User != null}" id="loggedIn" class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">
+<!--            <a href="/logout" class="text-truncate text-white mr-5">Profile</a>-->
+<!--            <a href="/logout" class="text-truncate text-white">logout</a>-->
+
         </div>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        const loggedIn = document.getElementById('loggedIn')
+
+        let user = [[${User}]];
+        if(user){
+
+            //======== FETCH USER ========
+
+
+            const myUrl = `http://localhost:5002/select/user/${user}`;
+
+            const requestOptions = {
+                'content-type': 'application/json',
+                method: 'GET',
+                redirect: 'follow'
+            };
+
+            fetch(myUrl, requestOptions)
+                .then(response => response.json())
+                .then(data => {
+                    gotUserData(data)
+                    console.log(data)
+                })
+
+
+        }
+
+        function gotUserData(data){
+//    CREATE ATAG LOGOUT
+            const logout = document.createElement('a')
+            logout.className = "text-truncate text-white mr-5"
+            logout.textContent = "Logout"
+            logout.href = "/logout"
+            loggedIn.appendChild(logout)
+
+//    CREATE ATAG PROFILE
+            const profile = document.createElement('a')
+            profile.className = "text-truncate text-white mr-5"
+            profile.textContent = "Profile"
+            profile.href = "/profile/about/"+data.mail;
+            loggedIn.appendChild(profile)
+
+
+
+        }
+        console.log(user)
+
+        /*]]>*/
+    </script>
 </nav>

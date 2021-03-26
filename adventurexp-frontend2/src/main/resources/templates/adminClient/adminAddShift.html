@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tilføj Vagt</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="/userClient/css/formStyle.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<main class="container" align="">
+    <a href="/admin/schedule" style="color:black;">
+        <i class='fas fa-arrow-left mt-5' style='font-size:36px'></i>
+    </a>
+    <!-- === CREATE EVENT === -->
+    <form class="contact w-50" id="shiftForm">
+        <div class="valid" id="notFilled"></div>
+
+        <h3 class="text-center">Tilføj Ny Vagt</h3>
+        <!-- CHOOSE EMPLOYEE -->
+        <div class="form-group ml-5 mr-5">
+            <label for="mail">Medarbejder Mail</label>
+            <select class="form-control" id="mail">
+                <option value="0">Vælg Medarbejder</option>
+            </select>
+        </div>
+
+        <!-- CHOOSE ACTIVITY -->
+        <div class="form-group ml-5 mr-5">
+                <label for="activity">Aktivitet</label>
+                <select class="form-control" id="activity">
+                    <option value="0">Vælg Aktivitet</option>
+                </select>
+        </div>
+
+        <!-- SHIT START -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activityStart">Vagt Start</label>
+            <input id="activityStart" class="form-control" type="date" name="starts">
+        </div>
+
+        <!-- SHIFT END -->
+        <div class="form-group ml-5 mr-5">
+            <label for="activityEnd">Vagt Slut</label>
+            <input id="activityEnd" class="form-control" type="date" name="ends">
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 pl-5">
+                <!-- SUBMIT -->
+                <button type="submit" class="w-50 btn form-button ml-5 mr-5">Gem</button>
+            </div>
+        </div>
+
+    </form>
+</main>
+</body>
+<script src="/adminClient/js/adminAddShift.js"></script>
+</html>

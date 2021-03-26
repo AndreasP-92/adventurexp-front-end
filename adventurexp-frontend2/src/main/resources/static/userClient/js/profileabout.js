@@ -1,8 +1,11 @@
 //======== PROFILEABOUT ========
 
-const thisForm = document.getElementById('profileAboutForm');
-const password1 = document.getElementById('newPass');
-const password2 = document.getElementById('repeatPass');
+const thisForm      = document.getElementById('profileAboutForm');
+const password1     = document.getElementById('newPass');
+const password2     = document.getElementById('repeatPass');
+const profileHist   = document.getElementById('profileHist');
+const profileAbout  = document.getElementById('profileAbout');
+
 
 //======== EVENT LISTENER ========
 thisForm.addEventListener('submit', async function (e) {
@@ -25,7 +28,7 @@ thisForm.addEventListener('submit', async function (e) {
 
 });
 
-//======== FETCH MAIL ========
+//======== FETCH USER ========
 
 thePath = window.location.pathname;
 const email = thePath.substring(thePath.lastIndexOf('/')+1)
@@ -41,6 +44,8 @@ const requestOptions = {
 fetch(myUrl, requestOptions)
     .then(response => response.json())
     .then(data => {
+        profileHist.href = "/profile/about/" + data.mail;
+        profileHist.href = "/profile/history/" + data.mail;
         gotOneMailData(data)
         console.log(data)
     })

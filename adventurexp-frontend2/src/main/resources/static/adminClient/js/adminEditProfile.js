@@ -15,7 +15,7 @@ fetch(myUrl, requestOptions)
     .then(response => response.json())
     .then(data => {
         gotOneMailData(data)
-        console.log(data)
+        // console.log(data)
     })
 
 

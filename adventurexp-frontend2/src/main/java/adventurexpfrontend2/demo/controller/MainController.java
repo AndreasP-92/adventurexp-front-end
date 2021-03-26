@@ -189,4 +189,14 @@ public class MainController {
     public String editProfile(){
         return "/adminClient/adminEditProfile";
     }
+
+    @GetMapping("/admin/schedule")
+    public String adminSchedule(){
+        return "/adminClient/adminSchedule";
+    }
+
+    @GetMapping("/admin/schedule/add/shift")
+    public String adminAddShift(){
+        return "/adminClient/adminAddShift";
+    }
 }

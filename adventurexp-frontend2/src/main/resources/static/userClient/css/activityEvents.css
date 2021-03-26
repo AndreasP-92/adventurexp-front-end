@@ -1,13 +1,11 @@
-body {
-    /*margin-bottom: 40px;*/
-    /*margin-top: 40px;*/
-    /*text-align: center;*/
-    /*font-size: 14px;*/
-    /*font-family: 'Roboto', sans-serif;*/
-    background-image: url("/images/adventure.jpg");
-    background-repeat: no-repeat, repeat;
+body{
+    background-image: url("/images/activityBG.jpg");
+    background-repeat: no-repeat;
     background-position: center;
+    background-color: #099669;
+    background-size: cover;
 }
+
 nav{
     background-color: #2e3627fc
 }

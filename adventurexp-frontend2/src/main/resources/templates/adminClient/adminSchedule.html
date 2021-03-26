@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th ="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="/adminClient/css/adminScheduleCalender2.css" type="text/css" rel="stylesheet">
+    <link href="/adminClient/css/adminSchedulCalender.css" type="text/css" rel="stylesheet">
+    <title>Vagtplan</title>
+</head>
+<body>
+<main class="container">
+    <a href="/admin/index" style="color:black;">
+        <i class='fas fa-arrow-left mt-5' style='font-size:36px'></i>
+    </a>
+    <div class="row">
+        <div class="col-sm mt-5">
+            <h1 class="text-center text-white">Vagtplan</h1>
+        </div>
+    </div>
+    <!-- === ALL TICKETS / ASIGNED TICKETS BUTTONS === -->
+    <div class="row mt-5 mb-2">
+        <div class="col-sm-6" align="center">
+            <a href="/admin/schedule/add/shift" class="btn btn-secondary w-75 p-3">Tilføj Vagt</a>
+        </div>
+<!--        <div class="col-sm-6" align="center">-->
+<!--            <a href="/admin/asigned/ticket" class="btn btn-success w-75 p-3">Rediger Vagt</a>-->
+<!--        </div>-->
+    </div>
+    <div id="wrap">
+
+        <div id='calendar'></div>
+
+        <div style='clear:both'></div>
+    </div>
+</main>
+</body>
+<script src="/adminClient/js/adminScheduleCalenderMatrix.js"></script>
+<script src="/adminClient/js/adminScheduleCalenderInit.js"></script>
+</html>
