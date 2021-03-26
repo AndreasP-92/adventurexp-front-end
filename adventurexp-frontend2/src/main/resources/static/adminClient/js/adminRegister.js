@@ -7,11 +7,9 @@ const lastname  = document.getElementById('lastname');
 const phone     = document.getElementById('phone');
 const userrole  = document.getElementById('role');
 
-// alert("test")
+// ========= EVENT LISTENER ==========
 thisForm.addEventListener('submit', async function (e) {
     e.preventDefault();
-    // const formData = new FormData(thisForm).entries()
-    // const formData2 = new FormData(thisForm).entries()
     if(password2.value != password.value){
         console.log("test")
         document.getElementById('passwordValid').innerHTML = "Password skal være ens!";
@@ -20,12 +18,10 @@ thisForm.addEventListener('submit', async function (e) {
         await insertAuth();
         window.location.href = "/login"
     }
-    // await insertProfile(formData)
-    // await  insertUser(formData2)
-
-
 
 });
+
+// ========= INSERT USER ==========
 
 async function insertUser(){
     await fetch('http://localhost:5002/insert/admin/user',{
@@ -44,7 +40,6 @@ async function insertUser(){
         }
         return Promise.reject(response);
     }).then(function (data) {
-        // thisForm.submit();
         console.log(data)
     }).catch(function (error) {
         console.warn('Something went wrong.', error);
@@ -52,6 +47,8 @@ async function insertUser(){
 
     })
 }
+
+// ========= INSERT ROLE ==========
 
 async function insertAuth(){
     await fetch('http://localhost:5002/insert/admin/auth',{
@@ -70,7 +67,6 @@ async function insertAuth(){
         }
         return Promise.reject(response);
     }).then(function (data) {
-        // thisForm.submit();
         console.log(data)
     }).catch(function (error) {
         console.warn('Something went wrong.', error);
