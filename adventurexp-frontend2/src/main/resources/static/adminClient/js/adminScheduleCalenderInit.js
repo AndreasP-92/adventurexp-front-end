@@ -50,7 +50,8 @@ $(document).ready(function() {
         method: 'GET',
         redirect: 'follow'
     };
-
+    // start : new Date(2021, 4, 4),
+    //     end: new Date(2021, 4, 10)
     async function fetchFunction(){
         await fetch(myUrl, requestOptions)
             .then(response => response.json())

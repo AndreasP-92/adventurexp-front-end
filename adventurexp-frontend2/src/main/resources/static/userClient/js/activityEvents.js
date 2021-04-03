@@ -67,6 +67,8 @@ $(document).ready(function() {
 
             console.log("EVENTS======11111",eventArray);
             });
+        // start : new Date(2021, 3, 4),
+        //     end: new Date(2021, 3, 6)
         // console.log("EVENTS======22222",eventArray);
 
         return eventArray;
@@ -144,8 +146,9 @@ $(document).ready(function() {
                 }
 
             },
-
             events: await fetchFunction()
+            // events:
+            //
             // [
             //     {
             //         title : "Bowling",

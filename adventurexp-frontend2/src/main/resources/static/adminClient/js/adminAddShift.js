@@ -1,8 +1,8 @@
 const thisForm          = document.getElementById('shiftForm');
 const mail              = document.getElementById('mail');
 const activity          = document.getElementById('activity');
-const activityStart     = document.getElementById('activityEnd');
-const activityEnd       = document.getElementById('activityStart');
+const activityStart     = document.getElementById('activityStart');
+const activityEnd       = document.getElementById('activityEnd');
 // alert("test222")
 
 getUsers();
@@ -11,20 +11,23 @@ getActivities();
 thisForm.addEventListener('submit', async function(e){
     e.preventDefault();
 
-    newStartDate = new Date(activityStart.value);
-    newEndDate = new Date(activityEnd.value);
+    let newStartDate = new Date(activityStart.value);
+    let newEndDate = new Date(activityEnd.value);
+    //
+    let newStartDateYear = newStartDate.getMonth()+1;
+    let newEndDateYear = newEndDate.getMonth()+1;
+    //
+    let newStartDateMonth = newStartDate.getDate();
+    let newEndDateMonth = newEndDate.getDate();
 
-    newStartDateYear = newStartDate.getMonth() +1
-    newEndDateYear = newEndDate.getMonth() +1
+    let startDate = newStartDate.getUTCFullYear() + ", " + newStartDateYear + ", " + newStartDateMonth;
+    let endDate = newEndDate.getUTCFullYear() + ", " + newEndDateYear + ", " + newEndDateMonth;
 
-    newStartDateMonth = newStartDate.getDay()+2;
-    newEndDateMonth = newEndDate.getDay()+1;
+    // let newStartDate2 = newStartDate.getFullYear() + " " + newStartDateYear + " " + newStartDateMonth;
+    // let newEndDate2 = newEndDate.getFullYear() + " " + newEndDateYear + " " + newEndDateMonth;
 
-    let newStartDate2 = newStartDate.getFullYear() + " " + newStartDateYear + " " + newStartDateMonth;
-    let newEndDate2 = newEndDate.getFullYear() + " " + newEndDateYear + " " + newEndDateMonth;
-
-    console.log(newStartDate2)
-    console.log(newEndDate2)
+    console.log(startDate)
+    console.log(endDate)
     // alert("test")
 
 
@@ -33,8 +36,8 @@ thisForm.addEventListener('submit', async function(e){
         body: JSON.stringify({
             'mail'      : mail.value,
             'activity'  : activity.value,
-            'starts'    : newStartDate2,
-            'ends'      : newEndDate2,
+            'starts'    : startDate,
+            'ends'      : endDate,
         }),
         headers: {
             'Content-type': 'application/json; charset=UTF-8'

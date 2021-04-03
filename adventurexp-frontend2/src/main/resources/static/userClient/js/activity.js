@@ -1,8 +1,8 @@
 const thisForm = document.getElementById('activityForm');
 const activity_name = document.getElementById('activity_name');
 const activity_pic = document.getElementById('activity_pic');
-const activity_avail_start = document.getElementById('activity_avail_end');
-const activity_avail_end = document.getElementById('activity_avail_start');
+const activity_avail_start = document.getElementById('activity_avail_start');
+const activity_avail_end = document.getElementById('activity_avail_end');
 const activity_min_age = document.getElementById('activity_min_age');
 const activity_group_size = document.getElementById('activity_group_size');
 const activity_desc = document.getElementById('activity_desc');
@@ -73,32 +73,29 @@ async function insertDuration(duration_time, ac_name){
 async function insertActivity(optionValues){
     const filename = activity_pic.files[0].name;
 
-    newStartDate = new Date(activity_avail_start.value);
-    newEndDate = new Date(activity_avail_end.value);
+    let newStartDate = new Date(activity_avail_start.value);
+    let newEndDate = new Date(activity_avail_end.value);
+    //
+    let newStartDateYear = newStartDate.getMonth()+1;
+    let newEndDateYear = newEndDate.getMonth()+1;
+    //
+    let newStartDateMonth = newStartDate.getDate();
+    let newEndDateMonth = newEndDate.getDate();
 
-    newStartDateYear = newStartDate.getMonth() +1
-    newEndDateYear = newEndDate.getMonth() +1
+    let startDate = newStartDate.getUTCFullYear() + ", " + newStartDateYear + ", " + newStartDateMonth;
+    let endDate = newEndDate.getUTCFullYear() + ", " + newEndDateYear + ", " + newEndDateMonth;
 
-    newStartDateMonth = newStartDate.getDay()+2;
-    newEndDateMonth = newEndDate.getDay()+1;
-
-    let newStartDate2 = newStartDate.getFullYear() + " " + newStartDateYear + " " + newStartDateMonth;
-    let newEndDate2 = newEndDate.getFullYear() + " " + newEndDateYear + " " + newEndDateMonth;
-
-    console.log(newStartDate2)
-    console.log(newEndDate2)
+    console.log(startDate)
+    console.log(endDate)
     // alert("test")
-
-    console.log('start ====', newStartDate2)
-    console.log('end ====', newEndDate2)
 
 
     fetch('http://localhost:5002/insert/activity', {
         method: 'POST',
         body: JSON.stringify({
             'name'          : activity_name.value,
-            'starts'        : newStartDate2,
-            'ends'          : newEndDate2,
+            'starts'        : startDate,
+            'ends'          : endDate,
             'age'           : activity_min_age.value,
             'size'          : activity_group_size.value,
             'description'   : activity_desc.value,
