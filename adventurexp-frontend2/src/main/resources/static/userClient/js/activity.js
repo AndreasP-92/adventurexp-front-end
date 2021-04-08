@@ -120,7 +120,7 @@ async function insertActivity(optionValues){
             console.log("OPTIONS====",optionValues[i])
             insertDuration(optionValues[i], data.name)
         }
-        window.location.href = "/"
+        thisForm.submit();
     }).catch(function (error) {
         console.warn('Something went wrong.', error);
     });
